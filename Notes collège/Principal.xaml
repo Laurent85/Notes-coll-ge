@@ -412,13 +412,13 @@
                                          Title="Elève"
                                          DependentValuePath="Moyenne"
                                          IndependentValuePath="Trimestre"
-                                         ItemsSource="{Binding Data}" >
+                                         ItemsSource="{Binding Data}">
                         <charting:LineSeries.DependentRangeAxis>
-                            <charting:LinearAxis Orientation="Y"
-                                  Title="Moyenne élève"
-                                  ShowGridLines="True"                                  
-                                  Maximum="20"
-                                  Minimum="10" />
+                            <charting:LinearAxis Title="Moyenne élève"
+                                                 Maximum="20"
+                                                 Minimum="10"
+                                                 Orientation="Y"
+                                                 ShowGridLines="True" />
                         </charting:LineSeries.DependentRangeAxis>
                     </charting:LineSeries>
                     <charting:LineSeries x:Name="moyenne_classe"
@@ -431,12 +431,12 @@
                                          ItemsSource="{Binding Data}" />
                     <charting:AreaSeries DependentValueBinding="{Binding Moyenne_classe}"
                                          IndependentValueBinding="{Binding Trimestre}"
-                                         ItemsSource="{Binding Data_classe}" >
+                                         ItemsSource="{Binding Data_classe}">
                         <charting:AreaSeries.DependentRangeAxis>
-                            <charting:LinearAxis Orientation="Y"                                  
-                                  ShowGridLines="True"                                  
-                                  Maximum="20"
-                                  Minimum="10" />
+                            <charting:LinearAxis Maximum="20"
+                                                 Minimum="11"
+                                                 Orientation="Y"
+                                                 ShowGridLines="True" />
                         </charting:AreaSeries.DependentRangeAxis>
                     </charting:AreaSeries>
                 </charting:Chart>

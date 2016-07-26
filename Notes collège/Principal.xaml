@@ -434,7 +434,7 @@
                                          ItemsSource="{Binding Data_classe}">
                         <charting:AreaSeries.DependentRangeAxis>
                             <charting:LinearAxis Maximum="20"
-                                                 Minimum="10"
+                                                 Minimum="12"
                                                  Orientation="Y"
                                                  ShowGridLines="True" />
                         </charting:AreaSeries.DependentRangeAxis>

@@ -409,7 +409,7 @@
             <DockPanel Margin="0,0,5,-159" LastChildFill="True">
                 <charting:Chart DockPanel.Dock="Bottom">
                     <charting:LineSeries x:Name="moyenne_élève"
-                                         Title="Elève"
+                                         Title="Elève1"
                                          DependentValuePath="Moyenne"
                                          IndependentValuePath="Trimestre"
                                          ItemsSource="{Binding Data}" >

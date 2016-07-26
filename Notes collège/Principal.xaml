@@ -428,10 +428,13 @@
                                          ItemsSource="{Binding Data_classe}" />
                     <charting:AreaSeries DependentValueBinding="{Binding Moyenne}"
                                          IndependentValueBinding="{Binding Trimestre}"
-                                         ItemsSource="{Binding Data}" />
+                                         ItemsSource="{Binding Data}" 
+                                         Title="Elève"/>
                     <charting:AreaSeries DependentValueBinding="{Binding Moyenne_classe}"
+                                         Title="Classe"
                                          IndependentValueBinding="{Binding Trimestre}"
-                                         ItemsSource="{Binding Data_classe}">
+                                         ItemsSource="{Binding Data_classe}
+">
                         <charting:AreaSeries.DependentRangeAxis>
                             <charting:LinearAxis Maximum="20"
                                                  Minimum="10"

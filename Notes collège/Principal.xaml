@@ -1,0 +1,446 @@
+﻿<Window x:Class="Notes_collège.Principal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Notes_collège"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+        Title="Moyennes scolaires"
+        Width="1156"
+        Height="430.8"
+        Background="#FFA9F0BC"
+        Icon="Ressources/Notes.ico"
+        Loaded="Window_Loaded"
+        mc:Ignorable="d">
+
+    <Grid Margin="0,0,0,1" Background="#FFA9F0BC">
+        <ComboBox x:Name="Classe"
+                  Width="120"
+                  Margin="323,88,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Loaded="Classe_Loaded"
+                  SelectionChanged="Classe_SelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF3DC6EE" />
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <ComboBox x:Name="Eleve"
+                  Width="120"
+                  Margin="150,88,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Loaded="Eleve_Loaded"
+                  SelectionChanged="Eleve_SelectionChanged">
+            <ComboBox.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF3DC6EE" />
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <TextBox x:Name="Moyenne1"
+                 Width="120"
+                 Height="23"
+                 Margin="85,243,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne2"
+                 Width="120"
+                 Height="23"
+                 Margin="240,243,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne3"
+                 Width="120"
+                 Height="23"
+                 Margin="389,243,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne1_classe"
+                 Width="120"
+                 Height="23"
+                 Margin="85,272,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne2_classe"
+                 Width="120"
+                 Height="23"
+                 Margin="240,272,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne3_classe"
+                 Width="120"
+                 Height="23"
+                 Margin="389,272,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFEBF9AA"
+                 TextWrapping="Wrap" />
+        <Button x:Name="Btn_Valider1"
+                Width="75"
+                Margin="109,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Valider1_Click"
+                Content="Valider">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Valider2"
+                Width="75"
+                Margin="260,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Valider2_Click"
+                Content="Valider">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Valider3"
+                Width="75"
+                Margin="405,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Valider3_Click"
+                Content="Valider">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Modifier1"
+                Width="75"
+                Margin="109,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Modifier1_Click"
+                Content="Modifier">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Modifier2"
+                Width="75"
+                Margin="260,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Modifier2_Click"
+                Content="Modifier">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Modifier3"
+                Width="75"
+                Margin="405,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Modifier3_Click"
+                Content="Modifier">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Annuler1"
+                Width="75"
+                Margin="109,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Annuler1_Click"
+                Content="Annuler">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Annuler2"
+                Width="75"
+                Margin="260,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Annuler2_Click"
+                Content="Annuler">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_Annuler3"
+                Width="75"
+                Margin="405,150,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Btn_Annuler3_Click"
+                Content="Annuler">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FF48A248" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="Moyenne_générale"
+                 Width="93"
+                 Height="23"
+                 Margin="321,330,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFF4FB60"
+                 FontFamily="Comic Sans MS"
+                 FontSize="13"
+                 FontWeight="Bold"
+                 Foreground="#FFF00000"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap" />
+        <TextBox x:Name="Moyenne_générale_classe"
+                 Width="93"
+                 Height="23"
+                 Margin="321,358,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center"
+                 Background="#FFF4FB60"
+                 FontFamily="Comic Sans MS"
+                 FontSize="13"
+                 FontWeight="Bold"
+                 Foreground="#FFF00000"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap" />
+        <Label x:Name="Titre"
+               Width="200"
+               Margin="197,10,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Résultats scolaires"
+               FontFamily="Comic Sans MS"
+               FontSize="20"
+               FontWeight="Bold"
+               Foreground="#FF5D8CF0"
+               TextOptions.TextHintingMode="Animated" />
+        <Label x:Name="Trimestre1"
+               Width="120"
+               Margin="100,209,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="1er trimestre"
+               FontSize="14"
+               FontStyle="Italic"
+               Foreground="#FFAA2680" />
+        <Label x:Name="Trimestre2"
+               Width="120"
+               Margin="251,209,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="2ème trimestre"
+               FontSize="14"
+               FontStyle="Italic"
+               Foreground="#FFAA2680" />
+        <Label x:Name="Trimestre3"
+               Width="120"
+               Margin="399,209,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="3ème trimestre"
+               FontSize="14"
+               FontStyle="Italic"
+               Foreground="#FFAA2680" />
+        <Label x:Name="Moy1"
+               Margin="118,240,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moy2"
+               Margin="276,240,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moy3"
+               Margin="426,240,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moy1_classe"
+               Margin="118,271,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moy2_classe"
+               Margin="276,271,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moy3_classe"
+               Margin="426,271,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Label"
+               FontFamily="Comic Sans MS"
+               FontWeight="Bold" />
+        <Label x:Name="Moyenne_générale1"
+               Width="139"
+               Height="50"
+               Margin="167,315,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               Content="Moyenne générale"
+               FontSize="14"
+               FontStyle="Italic"
+               FontWeight="Bold"
+               Foreground="#FFAA2680" />
+        <Label x:Name="Moyenne_générale1_Copy"
+               Width="139"
+               Height="60"
+               Margin="167,340,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               Content="Moyenne de classe"
+               FontSize="14"
+               FontStyle="Italic"
+               FontWeight="Bold"
+               Foreground="#FFAA2680" />
+        <Label x:Name="élève"
+               Margin="20,240,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Elève"
+               FontFamily="Comic Sans MS"
+               FontStyle="Italic"
+               Foreground="#FFAA2680" />
+        <Label x:Name="classe1"
+               Margin="20,271,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Classe"
+               FontFamily="Comic Sans MS"
+               FontStyle="Italic"
+               Foreground="#FFAA2680" />
+        <Image x:Name="Photo"
+               Width="100"
+               Height="100"
+               Margin="10,10,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Stretch="UniformToFill" />
+        <Grid Width="587"
+              Height="168"
+              Margin="532,30,0,0"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Background="#FFA9F0BC">
+            <DockPanel Margin="0,0,5,-159" LastChildFill="True">
+                <charting:Chart DockPanel.Dock="Bottom">
+                    <charting:LineSeries x:Name="moyenne_élève"
+                                         Title="Elève"
+                                         DependentValuePath="Moyenne"
+                                         IndependentValuePath="Trimestre"
+                                         ItemsSource="{Binding Data}" >
+                        <charting:LineSeries.DependentRangeAxis>
+                            <charting:LinearAxis Orientation="Y"
+                                  Title="Moyenne élève"
+                                  ShowGridLines="True"                                  
+                                  Maximum="20"
+                                  Minimum="10" />
+                        </charting:LineSeries.DependentRangeAxis>
+                    </charting:LineSeries>
+                    <charting:LineSeries x:Name="moyenne_classe"
+                                         Title="Classe"
+                                         DependentValuePath="Moyenne_classe"
+                                         IndependentValuePath="Trimestre"
+                                         ItemsSource="{Binding Data_classe}" />
+                    <charting:AreaSeries DependentValueBinding="{Binding Moyenne}"
+                                         IndependentValueBinding="{Binding Trimestre}"
+                                         ItemsSource="{Binding Data}" />
+                    <charting:AreaSeries DependentValueBinding="{Binding Moyenne_classe}"
+                                         IndependentValueBinding="{Binding Trimestre}"
+                                         ItemsSource="{Binding Data_classe}" >
+                        <charting:AreaSeries.DependentRangeAxis>
+                            <charting:LinearAxis Orientation="Y"                                  
+                                  ShowGridLines="True"                                  
+                                  Maximum="20"
+                                  Minimum="10" />
+                        </charting:AreaSeries.DependentRangeAxis>
+                    </charting:AreaSeries>
+                </charting:Chart>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -317,42 +317,42 @@
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FF7B8897" />
         <Label x:Name="Moy2"
                Margin="276,240,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FF7B8897" />
         <Label x:Name="Moy3"
                Margin="426,240,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FF7B8897" />
         <Label x:Name="Moy1_classe"
                Margin="118,271,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FFEC9C10" />
         <Label x:Name="Moy2_classe"
                Margin="276,271,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FFEC9C10" />
         <Label x:Name="Moy3_classe"
                Margin="426,271,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Label"
                FontFamily="Comic Sans MS"
-               FontWeight="Bold" />
+               FontWeight="Bold" Foreground="#FFEC9C10" />
         <Label x:Name="Moyenne_générale1"
                Width="139"
                Height="50"
@@ -420,21 +420,36 @@
                                                  Orientation="Y"
                                                  ShowGridLines="True" />
                         </charting:LineSeries.DependentRangeAxis>
+                        <charting:LineSeries.Template>
+                            <ControlTemplate TargetType="charting:LineSeries">
+                                <Canvas x:Name="PlotArea">
+                                    <Polyline x:Name="polyline"
+                                          Points="{TemplateBinding Points}"
+                                          Stroke="Red"
+                                          Style="{TemplateBinding PolylineStyle}" />
+                                </Canvas>
+                            </ControlTemplate>
+                        </charting:LineSeries.Template>
                     </charting:LineSeries>
                     <charting:LineSeries x:Name="moyenne_classe"
                                          Title="Classe"
                                          DependentValuePath="Moyenne_classe"
                                          IndependentValuePath="Trimestre"
                                          ItemsSource="{Binding Data_classe}" />
-                    <charting:AreaSeries DependentValueBinding="{Binding Moyenne}"
+                    <charting:AreaSeries Title="Elève"
+                                         DependentValueBinding="{Binding Moyenne}"
                                          IndependentValueBinding="{Binding Trimestre}"
-                                         ItemsSource="{Binding Data}" 
-                                         Title="Elève"/>
-                    <charting:AreaSeries DependentValueBinding="{Binding Moyenne_classe}"
-                                         Title="Classe"
+                                         ItemsSource="{Binding Data}">
+                        <charting:AreaSeries.DataPointStyle>
+                        <Style TargetType="charting:DataPoint">
+                            <Setter Property="Background" Value="Red" />
+                        </Style>
+                    </charting:AreaSeries.DataPointStyle>
+                    </charting:AreaSeries>
+                    <charting:AreaSeries Title="Classe"
+                                         DependentValueBinding="{Binding Moyenne_classe}"
                                          IndependentValueBinding="{Binding Trimestre}"
-                                         ItemsSource="{Binding Data_classe}
-">
+                                         ItemsSource="{Binding Data_classe}">
                         <charting:AreaSeries.DependentRangeAxis>
                             <charting:LinearAxis Maximum="20"
                                                  Minimum="10"

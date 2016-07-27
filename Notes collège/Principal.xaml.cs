@@ -172,6 +172,7 @@ namespace Notes_collège
             Calcul_moyenne_générale();
             Graphique();
             Graphique_classe();
+            Afficher_Sous_titre();
         }
 
         private void Eleve_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -183,6 +184,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Afficher_photo();
+            Afficher_Sous_titre();
         }
 
         private void Afficher_photo()
@@ -190,6 +192,11 @@ namespace Notes_collège
             string chemin = "Ressources\\" + Eleve.SelectedValue.ToString() + ".jpg";
             Photo.Source = new BitmapImage(new Uri(@chemin, UriKind.Relative));
         }
+
+        private void Afficher_Sous_titre()
+            {
+            Sous_titre.Content = Eleve.SelectedValue + " - " + Classe.SelectedValue;
+            }
 
         private void Visibilité_mode_modification(string num)
         {

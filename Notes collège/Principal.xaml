@@ -19,11 +19,11 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
     <Grid Margin="0,0,0,1" Background="#FFA9F0BC">
         <ComboBox x:Name="Classe"
                   Width="120"
-                  Margin="323,88,0,0"
+                  Margin="320,100,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Loaded="Classe_Loaded"
-                  SelectionChanged="Classe_SelectionChanged" FontFamily="Comic Sans MS">
+                  SelectionChanged="Classe_SelectionChanged" FontFamily="Comic Sans MS" Foreground="#FFEC9C10">
             <ComboBox.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
@@ -35,11 +35,11 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
         </ComboBox>
         <ComboBox x:Name="Eleve"
                   Width="120"
-                  Margin="150,88,0,0"
+                  Margin="167,100,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Loaded="Eleve_Loaded"
-                  SelectionChanged="Eleve_SelectionChanged" FontFamily="Comic Sans MS">
+                  SelectionChanged="Eleve_SelectionChanged" FontFamily="Comic Sans MS" Foreground="#FF007DF9">
             <ComboBox.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
@@ -57,7 +57,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FF007DF9" />
         <TextBox x:Name="Moyenne2"
                  Width="120"
                  Height="23"
@@ -66,7 +66,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FF007DF9" />
         <TextBox x:Name="Moyenne3"
                  Width="120"
                  Height="23"
@@ -75,7 +75,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FF007DF9" />
         <TextBox x:Name="Moyenne1_classe"
                  Width="120"
                  Height="23"
@@ -84,7 +84,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FFEC9C10" />
         <TextBox x:Name="Moyenne2_classe"
                  Width="120"
                  Height="23"
@@ -93,7 +93,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FFEC9C10" />
         <TextBox x:Name="Moyenne3_classe"
                  Width="120"
                  Height="23"
@@ -102,20 +102,20 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
                  Background="#FFEBF9AA"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" FontFamily="Comic Sans MS" Foreground="#FFEC9C10" />
         <Button x:Name="Btn_Valider1"
                 Width="75"
                 Margin="109,182,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Valider1_Click"
-                Content="Valider">
+                Content="Valider" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -125,13 +125,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Valider2_Click"
-                Content="Valider">
+                Content="Valider" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -141,13 +141,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Valider3_Click"
-                Content="Valider">
+                Content="Valider" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -157,13 +157,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Modifier1_Click"
-                Content="Modifier">
+                Content="Modifier" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -173,13 +173,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Modifier2_Click"
-                Content="Modifier">
+                Content="Modifier" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -189,13 +189,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Modifier3_Click"
-                Content="Modifier">
+                Content="Modifier" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -205,13 +205,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Annuler1_Click"
-                Content="Annuler">
+                Content="Annuler" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -221,13 +221,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Annuler2_Click"
-                Content="Annuler">
+                Content="Annuler" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -237,20 +237,20 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="Btn_Annuler3_Click"
-                Content="Annuler">
+                Content="Annuler" FontFamily="Comic Sans MS">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Offset="0" Color="#FFF3F3F3" />
                     <GradientStop Offset="0.5" Color="#FFEBEBEB" />
                     <GradientStop Offset="0.5" Color="#FFDDDDDD" />
-                    <GradientStop Offset="1" Color="#FF48A248" />
+                    <GradientStop Offset="1" Color="#FF95E699" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
         <TextBox x:Name="Moyenne_générale"
                  Width="93"
                  Height="23"
-                 Margin="321,330,0,0"
+                 Margin="256,328,0,0"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
@@ -264,7 +264,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
         <TextBox x:Name="Moyenne_générale_classe"
                  Width="93"
                  Height="23"
-                 Margin="321,358,0,0"
+                 Margin="256,356,0,0"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
                  HorizontalContentAlignment="Center"
@@ -277,7 +277,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                  TextWrapping="Wrap" />
         <Label x:Name="Titre"
                Width="200"
-               Margin="197,10,0,0"
+               Margin="207,10,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="Résultats scolaires"
@@ -361,7 +361,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
         <Label x:Name="Moyenne_générale1"
                Width="179"
                Height="50"
-               Margin="137,315,0,0"
+               Margin="72,313,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                VerticalContentAlignment="Center"
@@ -373,7 +373,7 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
         <Label x:Name="Moyenne_générale1_Copy"
                Width="179"
                Height="60"
-               Margin="137,340,0,0"
+               Margin="72,338,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                VerticalContentAlignment="Center"
@@ -477,5 +477,13 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
                 </charting:Chart>
             </DockPanel>
         </Grid>
+        <Label x:Name="Sous_titre"
+        	Margin="207,53,0,0"
+        	HorizontalAlignment="Left"
+               HorizontalContentAlignment="Center"
+        	VerticalAlignment="Top"
+        	Content="Label"
+        	FontFamily="Comic Sans MS"
+        	FontWeight="Bold" Foreground="#FF5D8CF0" Width="190" FontSize="14" />
     </Grid>
 </Window>

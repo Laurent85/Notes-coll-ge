@@ -1,0 +1,51 @@
+﻿<Window x:Name="Bilan" x:Class="Notes_collège.Bilan_Année"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bilan_Année" Height="816" Width="923" Loaded="Bilan_Loaded">
+    <Grid>
+        <Label x:Name="Titre" Content="Bilan" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontFamily="Comic Sans MS" Foreground="#FF7792EE"/>
+        <Rectangle HorizontalAlignment="Left" Height="113" Margin="89,115,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="732"/>
+        <Image x:Name="photo_élève" HorizontalAlignment="Left" Height="70" Margin="110,152,0,0" VerticalAlignment="Top" Width="51" Source="Ressources/Baptiste.jpg"/>
+        <Rectangle HorizontalAlignment="Left" Height="113" Margin="181,115,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="160"/>
+        <Rectangle HorizontalAlignment="Left" Height="113" Margin="501,115,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="160"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="181,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="261,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="341,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="421,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="501,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="581,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="661,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="27" Margin="741,146,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="181,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="261,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="341,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="421,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="501,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="581,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="661,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="741,173,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="80"/>
+        <Label Content="1er trimestre" HorizontalAlignment="Left" Margin="181,115,0,0" VerticalAlignment="Top" Height="31" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="2ème trimestre" HorizontalAlignment="Left" Margin="341,115,0,0" VerticalAlignment="Top" Height="31" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="3ème trimestre" HorizontalAlignment="Left" Margin="501,115,0,0" VerticalAlignment="Top" Height="31" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Année" HorizontalAlignment="Left" Margin="661,115,0,0" VerticalAlignment="Top" Height="31" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Elève" HorizontalAlignment="Left" Margin="181,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="261,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Elève" HorizontalAlignment="Left" Margin="341,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="421,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Elève" HorizontalAlignment="Left" Margin="501,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="581,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Elève" HorizontalAlignment="Left" Margin="661,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="741,146,0,0" VerticalAlignment="Top" Height="27" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy1_eleve" Content="Elève" HorizontalAlignment="Left" Margin="181,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy1_classe" Content="Elève" HorizontalAlignment="Left" Margin="261,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy2_eleve" Content="Elève" HorizontalAlignment="Left" Margin="341,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy2_classe" Content="Elève" HorizontalAlignment="Left" Margin="421,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy3_eleve" Content="Elève" HorizontalAlignment="Left" Margin="501,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy3_classe" Content="Elève" HorizontalAlignment="Left" Margin="581,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy_annee_eleve" Content="Elève" HorizontalAlignment="Left" Margin="661,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="moy_annee_classe" Content="Elève" HorizontalAlignment="Left" Margin="741,173,0,0" VerticalAlignment="Top" Height="55" Width="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Rectangle HorizontalAlignment="Left" Height="32" Margin="89,115,0,0" Stroke="#FF007DF9" VerticalAlignment="Top" Width="92"/>
+        <Label x:Name="prénom_élève" Content="Baptiste" HorizontalAlignment="Left" Margin="89,115,0,0" VerticalAlignment="Top" Height="31" Width="92" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>

@@ -12,7 +12,7 @@ namespace Notes_collège
         {
 
         private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
-        public void Lire_moyennes()
+        public void Lecture_moyennes()
             {
             string st = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='1er trimestre'";
             string st1 = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='2ème trimestre'";

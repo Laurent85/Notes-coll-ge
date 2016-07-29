@@ -13,11 +13,14 @@ namespace Notes_collège
     /// </summary>
     public partial class Principal : Window
     {
-        private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        //private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
         //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
         public static string classe = "";
+        public static string moy1_Baptiste = "";
+        public static string moy2_Baptiste = "";
+        public static string moy3_Baptiste = "";
         public static double moy1 = 0;
         public static double moy2 = 0;
         public static double moy3 = 0;
@@ -575,7 +578,8 @@ namespace Notes_collège
         }
 
         private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            classe = Classe.SelectedValue.ToString();           
             Bilan_Année bilan = new Bilan_Année();
             bilan.Show();
         }

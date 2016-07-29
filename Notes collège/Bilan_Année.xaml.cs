@@ -26,8 +26,7 @@ namespace Notes_collège
 
         private void Bilan_Loaded(object sender, RoutedEventArgs e)
             {
-            Lire_moyennes lire_moyennes = new Lire_moyennes();
-            lire_moyennes.Lecture_moyennes();
+            
             }
         }
     }

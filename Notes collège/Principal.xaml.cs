@@ -573,5 +573,11 @@ namespace Notes_collège
                 set { SetValue(valeur1, value); }
             }
         }
+
+        private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
+        {            
+            Bilan_Année bilan = new Bilan_Année();
+            bilan.Show();
+        }
     }
 }

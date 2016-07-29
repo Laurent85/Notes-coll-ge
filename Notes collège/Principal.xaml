@@ -485,5 +485,6 @@ xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualizatio
         	Content="Label"
         	FontFamily="Comic Sans MS"
         	FontWeight="Bold" Foreground="#FF5D8CF0" Width="190" FontSize="14" />
+        <Button x:Name="Btn_Bilan" Content="Bilan année" HorizontalAlignment="Left" Margin="416,341,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Bilan_Click"/>
     </Grid>
 </Window>

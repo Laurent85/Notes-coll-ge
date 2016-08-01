@@ -13,20 +13,18 @@ namespace Notes_collège
     /// </summary>
     public partial class Principal : Window
     {
-        //private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+
         //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
-        public static string classe = "";
-        public static string moy1_Baptiste = "";
-        public static string moy2_Baptiste = "";
-        public static string moy3_Baptiste = "";
+        public static string classe = "";        
         public static double moy1 = 0;
         public static double moy2 = 0;
         public static double moy3 = 0;
         public static double moy1_classe = 0;
         public static double moy2_classe = 0;
-        public static double moy3_classe = 0;
+        public static double moy3_classe = 0;        
 
         public Principal()
         {
@@ -72,8 +70,7 @@ namespace Notes_collège
             Lire_moyennes_classe();
             Graphique();
             Graphique_classe();
-            Visibilité_mode_modification("1");
-            //if (Moyenne1.Text == "") { Moyenne1_classe.Visibility = Visibility.Hidden; }
+            Visibilité_mode_modification("1");            
             Moyenne1.Focus();
             Moyenne1.SelectAll();
         }
@@ -86,7 +83,6 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("2");
-            //if (Moyenne2.Text == "") { Moyenne2_classe.Visibility = Visibility.Hidden; }
             Moyenne2.Focus();
             Moyenne2.SelectAll();
         }
@@ -99,7 +95,6 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("3");
-            //if (Moyenne3.Text == "") { Moyenne3_classe.Visibility = Visibility.Hidden; }
             Moyenne3.Focus();
             Moyenne3.SelectAll();
         }
@@ -121,9 +116,9 @@ namespace Notes_collège
 
         private void Btn_Valider1_Click(object sender, RoutedEventArgs e)
         {
-            Saisie_moyenne("1er trimestre", Moyenne1, Moyenne1_classe, Moy1, Moy1_classe, "1");            
-            Lire_moyennes();            
-            Calcul_moyenne_générale();            
+            Saisie_moyenne("1er trimestre", Moyenne1, Moyenne1_classe, Moy1, Moy1_classe, "1");
+            Lire_moyennes();
+            Calcul_moyenne_générale();
             Saisie_moyenne_classe("1er trimestre", Moyenne1_classe, Moyenne1, Moy1, Moy1_classe, "1");
             effacer();
             Lire_moyennes();
@@ -137,9 +132,9 @@ namespace Notes_collège
 
         private void Btn_Valider2_Click(object sender, RoutedEventArgs e)
         {
-            Saisie_moyenne("2ème trimestre", Moyenne2, Moyenne2_classe, Moy2, Moy2_classe, "2");            
-            Lire_moyennes();            
-            Calcul_moyenne_générale();            
+            Saisie_moyenne("2ème trimestre", Moyenne2, Moyenne2_classe, Moy2, Moy2_classe, "2");
+            Lire_moyennes();
+            Calcul_moyenne_générale();
             Saisie_moyenne_classe("2ème trimestre", Moyenne2_classe, Moyenne2, Moy2, Moy2_classe, "2");
             effacer();
             Lire_moyennes();
@@ -153,9 +148,9 @@ namespace Notes_collège
 
         private void Btn_Valider3_Click(object sender, RoutedEventArgs e)
         {
-            Saisie_moyenne("3ème trimestre", Moyenne3, Moyenne3_classe, Moy3, Moy3_classe, "3");            
-            Lire_moyennes();            
-            Calcul_moyenne_générale();            
+            Saisie_moyenne("3ème trimestre", Moyenne3, Moyenne3_classe, Moy3, Moy3_classe, "3");
+            Lire_moyennes();
+            Calcul_moyenne_générale();
             Saisie_moyenne_classe("3ème trimestre", Moyenne3_classe, Moyenne3, Moy3, Moy3_classe, "3");
             effacer();
             Lire_moyennes();
@@ -197,9 +192,9 @@ namespace Notes_collège
         }
 
         private void Afficher_Sous_titre()
-            {
+        {
             Sous_titre.Content = Eleve.SelectedValue + " - " + Classe.SelectedValue;
-            }
+        }
 
         private void Visibilité_mode_modification(string num)
         {
@@ -344,13 +339,13 @@ namespace Notes_collège
             con.Open();
 
             try
-            {                
+            {
                 Moyenne_générale.Text = cmd.ExecuteScalar().ToString();
             }
             catch { }
 
             try
-            {                
+            {
                 Moyenne_générale_classe.Text = cmd1.ExecuteScalar().ToString();
             }
             catch { }
@@ -362,7 +357,7 @@ namespace Notes_collège
             string st1 = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
 
             SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd1 = new SqlCommand(st1, con);                   
+            SqlCommand cmd1 = new SqlCommand(st1, con);
 
             con.Open();
             string st = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne)";
@@ -382,7 +377,7 @@ namespace Notes_collège
                 cmd2.Parameters.AddWithValue("@Moyenne", Convert.ToDouble(moyenne.Text));
             }
             catch { }
-            
+
             //Insertion ligne
             if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() == "") && (moyenne.Text != ""))
             {
@@ -422,7 +417,7 @@ namespace Notes_collège
             string st1 = "SELECT Moyenne_classe FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
 
             SqlConnection con = new SqlConnection(connectionString);
-            
+
             con.Open();
             string st = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne_classe) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne_classe)";
             string st2 = "Update Notes Set Moyenne_classe = @Moyenne_classe WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
@@ -504,17 +499,17 @@ namespace Notes_collège
             try { Moyennes_graphique.Add(new Point("2ème trimestre", Convert.ToDouble(Moy2.Content))); }
             catch { }
             try { Moyennes_graphique.Add(new Point("3ème trimestre", Convert.ToDouble(Moy3.Content))); }
-            catch { }           
+            catch { }
         }
 
         private void Graphique_classe()
-        {            
+        {
             try { Moyennes_graphique_classe.Add(new Point_classe("1er trimestre", Convert.ToDouble(Moy1_classe.Content))); }
             catch { }
             try { Moyennes_graphique_classe.Add(new Point_classe("2ème trimestre", Convert.ToDouble(Moy2_classe.Content))); }
             catch { }
             try { Moyennes_graphique_classe.Add(new Point_classe("3ème trimestre", Convert.ToDouble(Moy3_classe.Content))); }
-            catch { }                       
+            catch { }
         }
 
         public ObservableCollection<Point> Data
@@ -579,7 +574,7 @@ namespace Notes_collège
 
         private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
         {
-            classe = Classe.SelectedValue.ToString();           
+            classe = Classe.SelectedValue.ToString();
             Bilan_Année bilan = new Bilan_Année();
             bilan.Show();
         }

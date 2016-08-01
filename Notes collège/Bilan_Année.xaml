@@ -13,9 +13,12 @@
             <ColumnDefinition Width="417*" />
         </Grid.ColumnDefinitions>
         <Label x:Name="Titre"
-               Margin="448,38,30,0"
+               Grid.ColumnSpan="2"
+               Width="732"
+               Margin="89,38,84,0"
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
+               HorizontalContentAlignment="Center"
                Content=""
                FontFamily="Comic Sans MS"
                FontSize="22"

@@ -171,9 +171,15 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Bon.png" />
-    <Resource Include="Ressources\Mauvais.png" />
-    <Resource Include="Ressources\Mauvais1.png" />
+    <Resource Include="Ressources\Bon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Mauvais.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Mauvais1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Mauvais2.png">
@@ -181,10 +187,14 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Mauvais3.png" />
+    <Resource Include="Ressources\Mauvais3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Mauvais4.png" />
+    <Resource Include="Ressources\Mauvais4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

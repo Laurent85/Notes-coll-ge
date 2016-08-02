@@ -13,10 +13,10 @@ namespace Notes_collège
     /// </summary>
     public partial class Principal : Window
     {
-        private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        //private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
 
         //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
         public static string classe = "";        
         public static double moy1 = 0;
@@ -37,7 +37,7 @@ namespace Notes_collège
             effacer();
             Visibilité_mode_consultation("1");
             Visibilité_mode_consultation("2");
-            Visibilité_mode_consultation("3");
+            Visibilité_mode_consultation("3");            
         }
 
         private void Eleve_Loaded(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace Notes_collège
             data.Add("Emilien");
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
-            comboBox.SelectedIndex = 0;
+            comboBox.SelectedIndex = 0;            
         }
 
         private void Classe_Loaded(object sender, RoutedEventArgs e)
@@ -66,8 +66,7 @@ namespace Notes_collège
         private void Btn_Modifier1_Click(object sender, RoutedEventArgs e)
         {
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
+            Lire_moyennes();            
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("1");            
@@ -78,8 +77,7 @@ namespace Notes_collège
         private void Btn_Modifier2_Click(object sender, RoutedEventArgs e)
         {
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
+            Lire_moyennes();            
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("2");
@@ -90,8 +88,7 @@ namespace Notes_collège
         private void Btn_Modifier3_Click(object sender, RoutedEventArgs e)
         {
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
+            Lire_moyennes();            
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("3");
@@ -115,15 +112,12 @@ namespace Notes_collège
         }
 
         private void Btn_Valider1_Click(object sender, RoutedEventArgs e)
-        {
+        {        
             Saisie_moyenne("1er trimestre", Moyenne1, Moyenne1_classe, Moy1, Moy1_classe, "1");
-            Lire_moyennes();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Saisie_moyenne_classe("1er trimestre", Moyenne1_classe, Moyenne1, Moy1, Moy1_classe, "1");
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Moyennes_graphique.Clear();
             Moyennes_graphique_classe.Clear();
             Graphique();
@@ -133,13 +127,10 @@ namespace Notes_collège
         private void Btn_Valider2_Click(object sender, RoutedEventArgs e)
         {
             Saisie_moyenne("2ème trimestre", Moyenne2, Moyenne2_classe, Moy2, Moy2_classe, "2");
-            Lire_moyennes();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Saisie_moyenne_classe("2ème trimestre", Moyenne2_classe, Moyenne2, Moy2, Moy2_classe, "2");
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Moyennes_graphique.Clear();
             Moyennes_graphique_classe.Clear();
             Graphique();
@@ -149,13 +140,10 @@ namespace Notes_collège
         private void Btn_Valider3_Click(object sender, RoutedEventArgs e)
         {
             Saisie_moyenne("3ème trimestre", Moyenne3, Moyenne3_classe, Moy3, Moy3_classe, "3");
-            Lire_moyennes();
-            Calcul_moyenne_générale();
+            Lire_moyennes();           
             Saisie_moyenne_classe("3ème trimestre", Moyenne3_classe, Moyenne3, Moy3, Moy3_classe, "3");
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Moyennes_graphique.Clear();
             Moyennes_graphique_classe.Clear();
             Graphique();
@@ -165,9 +153,7 @@ namespace Notes_collège
         private void Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
-            Calcul_moyenne_générale();
+            Lire_moyennes();           
             Graphique();
             Graphique_classe();
             Afficher_Sous_titre();
@@ -176,9 +162,7 @@ namespace Notes_collège
         private void Eleve_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             effacer();
-            Lire_moyennes();
-            Lire_moyennes_classe();
-            Calcul_moyenne_générale();
+            Lire_moyennes();            
             Graphique();
             Graphique_classe();
             Afficher_photo();
@@ -234,146 +218,55 @@ namespace Notes_collège
 
         private void Lire_moyennes()
         {
-            string st = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='1er trimestre'";
-            string st1 = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='2ème trimestre'";
-            string st2 = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='3ème trimestre'";
-
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(st, con);
-            SqlCommand cmd1 = new SqlCommand(st1, con);
-            SqlCommand cmd2 = new SqlCommand(st2, con);
-            SqlDataReader reader;
-            SqlDataReader reader1;
-            SqlDataReader reader2;
-
-            con.Open();
-
-            reader = cmd.ExecuteReader();
-            reader.Read();
+            
+            Lire_Moyennes_eleves lire_moyenne_élève = new Lire_Moyennes_eleves();
+            lire_moyenne_élève.Lecture_moyennes(Eleve, Classe);
+            Lire_Moyennes_eleves lire_moyenne_générale = new Lire_Moyennes_eleves();
+            lire_moyenne_générale.Calcul_moyenne_générale(Eleve, Classe);
             try
             {
-                Moy1.Content = reader["Moyenne"].ToString();
-                Moyenne1.Text = reader["Moyenne"].ToString();
-            }
-            catch { }
-            finally { reader.Close(); }
+            Moy1.Content = lire_moyenne_élève.tri1.Content.ToString();
+            Moy1_classe.Content = lire_moyenne_élève.tri1_classe.Content.ToString();
+                Moyenne1.Text = lire_moyenne_élève.tri1.Content.ToString();
+                Moyenne1_classe.Text = lire_moyenne_élève.tri1_classe.Content.ToString();
 
-            reader1 = cmd1.ExecuteReader();
-            reader1.Read();
-            try
-            {
-                Moy2.Content = reader1["Moyenne"].ToString();
-                Moyenne2.Text = reader1["Moyenne"].ToString();
-            }
-            catch { }
-            finally { reader1.Close(); }
+                Moy2.Content = lire_moyenne_élève.tri2.Content.ToString();
+                Moy2_classe.Content = lire_moyenne_élève.tri2_classe.Content.ToString();
+                Moyenne2.Text = lire_moyenne_élève.tri2.Content.ToString();
+                Moyenne2_classe.Text = lire_moyenne_élève.tri2_classe.Content.ToString();
 
-            reader2 = cmd2.ExecuteReader();
-            reader2.Read();
-            try
-            {
-                Moy3.Content = reader2["Moyenne"].ToString();
-                Moyenne3.Text = reader2["Moyenne"].ToString();
+                Moy3.Content = lire_moyenne_élève.tri3.Content.ToString();
+                Moy3_classe.Content = lire_moyenne_élève.tri3_classe.Content.ToString();
+                Moyenne3.Text = lire_moyenne_élève.tri3.Content.ToString();
+                Moyenne3_classe.Text = lire_moyenne_élève.tri3_classe.Content.ToString();
+
+                Moyenne_générale.Text = lire_moyenne_générale.annee.Content.ToString();
+                Moyenne_générale_classe.Text = lire_moyenne_générale.annee_classe.Content.ToString();
             }
-            catch { }
-            finally { reader2.Close(); }
-            con.Close();
+            catch { }           
+           
         }
-
-        private void Lire_moyennes_classe()
-        {
-            string st = "SELECT Moyenne_classe FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='1er trimestre'";
-            string st1 = "SELECT Moyenne_classe FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='2ème trimestre'";
-            string st2 = "SELECT Moyenne_classe FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='3ème trimestre'";
-
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(st, con);
-            SqlCommand cmd1 = new SqlCommand(st1, con);
-            SqlCommand cmd2 = new SqlCommand(st2, con);
-            SqlDataReader reader;
-            SqlDataReader reader1;
-            SqlDataReader reader2;
-
-            con.Open();
-
-            reader = cmd.ExecuteReader();
-            reader.Read();
-            try
-            {
-                Moy1_classe.Content = reader["Moyenne_classe"].ToString();
-                Moyenne1_classe.Text = reader["Moyenne_classe"].ToString();
-            }
-            catch { }
-            finally { reader.Close(); }
-
-            reader1 = cmd1.ExecuteReader();
-            reader1.Read();
-            try
-            {
-                Moy2_classe.Content = reader1["Moyenne_classe"].ToString();
-                Moyenne2_classe.Text = reader1["Moyenne_classe"].ToString();
-            }
-            catch { }
-            finally { reader1.Close(); }
-
-            reader2 = cmd2.ExecuteReader();
-            reader2.Read();
-            try
-            {
-                Moy3_classe.Content = reader2["Moyenne_classe"].ToString();
-                Moyenne3_classe.Text = reader2["Moyenne_classe"].ToString();
-            }
-            catch { }
-            finally { reader2.Close(); }
-            con.Close();
-        }
-
-        private void Calcul_moyenne_générale()
-        {
-            string st = "SELECT CAST(AVG(Moyenne) as decimal(18,2)) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "'";
-            string st1 = "SELECT CAST(AVG(Moyenne_classe) as decimal(18,2)) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "'";
-
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(st, con);
-            SqlCommand cmd1 = new SqlCommand(st1, con);
-            con.Open();
-
-            try
-            {
-                Moyenne_générale.Text = cmd.ExecuteScalar().ToString();
-            }
-            catch { }
-
-            try
-            {
-                Moyenne_générale_classe.Text = cmd1.ExecuteScalar().ToString();
-            }
-            catch { }
-            finally { con.Close(); }
-        }
-
+       
         private void Saisie_moyenne(string trimestre, TextBox moyenne, TextBox moyenne_classe, Label moy, Label moy_classe, string visibilité)
         {
-            string st1 = "SELECT Moyenne FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
-
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd1 = new SqlCommand(st1, con);
-
+            SqlConnection con = new SqlConnection(connectionString); 
             con.Open();
-            string st = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne)";
+
+            string st1 = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne)";
             string st2 = "Update Notes Set Moyenne = @Moyenne WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st3 = "Delete from Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st4 = "Update Notes Set Moyenne = NULL WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
-            SqlCommand cmd = new SqlCommand(st, con);
+            SqlCommand cmd1 = new SqlCommand(st1, con);
             SqlCommand cmd2 = new SqlCommand(st2, con);
             SqlCommand cmd3 = new SqlCommand(st3, con);
             SqlCommand cmd4 = new SqlCommand(st4, con);
-            cmd.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
-            cmd.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
-            cmd.Parameters.AddWithValue("@Trimestre", trimestre);
+            cmd1.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
+            cmd1.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
+            cmd1.Parameters.AddWithValue("@Trimestre", trimestre);
+
             try
             {
-                cmd.Parameters.AddWithValue("@Moyenne", Convert.ToDouble(moyenne.Text));
+                cmd1.Parameters.AddWithValue("@Moyenne", Convert.ToDouble(moyenne.Text));
                 cmd2.Parameters.AddWithValue("@Moyenne", Convert.ToDouble(moyenne.Text));
             }
             catch { }
@@ -381,7 +274,7 @@ namespace Notes_collège
             //Insertion ligne
             if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() == "") && (moyenne.Text != ""))
             {
-                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
             }
 
             //Insertion moyenne
@@ -485,6 +378,8 @@ namespace Notes_collège
             Moy1_classe.Content = "";
             Moy2_classe.Content = "";
             Moy3_classe.Content = "";
+            Moyenne_générale.Text = "";
+            Moyenne_générale_classe.Text = "";
             Moyennes_graphique.Clear();
             Moyennes_graphique_classe.Clear();
         }

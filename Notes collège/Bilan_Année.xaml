@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Name="Bilan"
         Title="Bilan_Année"
-        Width="913"
-        Height="574.666"
+        Width="1024"
+        Height="647.666"
         Background="#FFA9F0BC"
         Loaded="Bilan_Loaded">
     <Grid>
@@ -24,9 +24,9 @@
                FontSize="22"
                FontWeight="Bold"
                Foreground="#FF7792EE" />
-        <Label Width="160"
-               Height="31"
-               Margin="181,115,0,0"
+        <Label Width="185"
+               Height="37"
+               Margin="195,115,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -34,11 +34,11 @@
                Background="#FFDAD6D6"
                Content="1er trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" />
         <Label Grid.ColumnSpan="2"
-               Width="160"
-               Height="31"
-               Margin="341,115,0,0"
+               Width="184"
+               Height="37"
+               Margin="380,115,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -46,10 +46,10 @@
                Background="#FFEAE7E7"
                Content="2ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Width="80"
-               Height="27"
-               Margin="181,146,0,0"
+               Foreground="#FF54C954" />
+        <Label Width="92"
+               Height="33"
+               Margin="195,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -57,18 +57,18 @@
                Background="#FFFDF9A3"
                Content="Elève"
                FontWeight="Bold" />
-        <Label Width="80"
-               Height="27"
-               Margin="261,146,0,0"
+        <Label Width="93"
+               Height="33"
+               Margin="287,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF9FBD4"
                Content="Classe" />
-        <Label Width="80"
-               Height="27"
-               Margin="341,146,0,0"
+        <Label Width="92"
+               Height="33"
+               Margin="380,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -77,9 +77,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.ColumnSpan="2"
-               Width="80"
-               Height="27"
-               Margin="421,146,0,0"
+               Width="92"
+               Height="33"
+               Margin="472,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -87,32 +87,34 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy1_Baptiste"
-               Width="80"
-               Height="55"
-               Margin="181,173,0,0"
+               Width="92"
+               Height="66"
+               Margin="195,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFDCF7C4"
-               Content="Elève"
+               Padding="0"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" Content="test" >
+
+        </Label>
         <Label x:Name="moy1_classe_Baptiste"
-               Width="80"
-               Height="55"
-               Margin="261,173,0,0"
+               Width="93"
+               Height="66"
+               Margin="287,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Baptiste"
-               Width="80"
-               Height="55"
-               Margin="341,173,0,0"
+               Width="92"
+               Height="66"
+               Margin="380,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -121,34 +123,40 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy2_classe_Baptiste"
                Grid.ColumnSpan="2"
-               Width="80"
-               Height="55"
-               Margin="421,173,0,0"
+               Width="92"
+               Height="66"
+               Margin="472,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="prénom_élève"
-               Width="92"
-               Height="31"
+               Width="106"
+               Height="37"
                Margin="89,115,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFF3F1F1"
                Content="Baptiste"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" />
-        <Label Width="92"
-               Height="82"
-               Margin="89,146,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFCFF7C3" />
+                    <GradientStop Offset="1" Color="White" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Width="106"
+               Height="99"
+               Margin="89,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="">
@@ -160,16 +168,16 @@
             </Label.Background>
         </Label>
         <Image x:Name="photo_élève"
-               Width="76"
-               Height="81"
-               Margin="105,147,0,0"
+               Width="88"
+               Height="97"
+               Margin="107,154,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Source="Ressources/Baptiste.jpg" />
 
-        <Label Width="160"
-               Height="31"
-               Margin="181,253,0,0"
+        <Label Width="185"
+               Height="38"
+               Margin="195,281,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -177,11 +185,11 @@
                Background="#FFDAD6D6"
                Content="1er trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" />
         <Label Grid.ColumnSpan="2"
-               Width="160"
-               Height="31"
-               Margin="341,253,0,0"
+               Width="184"
+               Height="38"
+               Margin="380,281,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -189,10 +197,10 @@
                Background="#FFEAE7E7"
                Content="2ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Width="80"
-               Height="27"
-               Margin="181,284,0,0"
+               Foreground="#FF54C954" />
+        <Label Width="92"
+               Height="32"
+               Margin="195,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -200,18 +208,18 @@
                Background="#FFFDF9A3"
                Content="Elève"
                FontWeight="Bold" />
-        <Label Width="80"
-               Height="27"
-               Margin="261,284,0,0"
+        <Label Width="93"
+               Height="32"
+               Margin="287,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF9FBD4"
                Content="Classe" />
-        <Label Width="80"
-               Height="27"
-               Margin="341,284,0,0"
+        <Label Width="92"
+               Height="32"
+               Margin="380,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -220,9 +228,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.ColumnSpan="2"
-               Width="80"
-               Height="27"
-               Margin="421,284,0,0"
+               Width="92"
+               Height="32"
+               Margin="472,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -230,9 +238,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy1_Justine"
-               Width="80"
-               Height="55"
-               Margin="181,311,0,0"
+               Width="92"
+               Height="66"
+               Margin="195,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -241,21 +249,21 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy1_classe_Justine"
-               Width="80"
-               Height="55"
-               Margin="261,311,0,0"
+               Width="93"
+               Height="66"
+               Margin="287,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Justine"
-               Width="80"
-               Height="55"
-               Margin="341,311,0,0"
+               Width="92"
+               Height="66"
+               Margin="380,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -264,34 +272,40 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy2_classe_Justine"
                Grid.ColumnSpan="2"
-               Width="80"
-               Height="55"
-               Margin="421,311,0,0"
+               Width="92"
+               Height="66"
+               Margin="472,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="prénom_élève_Copy"
-               Width="92"
-               Height="31"
-               Margin="89,253,0,0"
+               Width="106"
+               Height="38"
+               Margin="89,281,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFF3F1F1"
                Content="Justine"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" />
-        <Label Width="92"
-               Height="82"
-               Margin="89,284,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFCFF7C3" />
+                    <GradientStop Offset="1" Color="White" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Width="106"
+               Height="98"
+               Margin="89,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="">
@@ -303,16 +317,16 @@
             </Label.Background>
         </Label>
         <Image x:Name="photo_élève_Copy"
-               Width="76"
-               Height="81"
-               Margin="105,285,0,0"
+               Width="88"
+               Height="97"
+               Margin="107,320,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Source="Ressources/Justine.jpg" />
 
-        <Label Width="160"
-               Height="31"
-               Margin="181,393,0,0"
+        <Label Width="185"
+               Height="37"
+               Margin="195,450,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -320,11 +334,11 @@
                Background="#FFDAD6D6"
                Content="1er trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" />
         <Label Grid.ColumnSpan="2"
-               Width="160"
-               Height="31"
-               Margin="341,393,0,0"
+               Width="184"
+               Height="37"
+               Margin="380,450,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -332,10 +346,10 @@
                Background="#FFEAE7E7"
                Content="2ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Width="80"
-               Height="27"
-               Margin="181,424,0,0"
+               Foreground="#FF54C954" />
+        <Label Width="92"
+               Height="33"
+               Margin="195,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -343,18 +357,18 @@
                Background="#FFFDF9A3"
                Content="Elève"
                FontWeight="Bold" />
-        <Label Width="80"
-               Height="27"
-               Margin="261,424,0,0"
+        <Label Width="93"
+               Height="33"
+               Margin="287,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF9FBD4"
                Content="Classe" />
-        <Label Width="80"
-               Height="27"
-               Margin="341,424,0,0"
+        <Label Width="92"
+               Height="33"
+               Margin="380,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -363,9 +377,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.ColumnSpan="2"
-               Width="80"
-               Height="27"
-               Margin="421,424,0,0"
+               Width="92"
+               Height="33"
+               Margin="472,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -373,9 +387,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy1_Emilien"
-               Width="80"
-               Height="55"
-               Margin="181,451,0,0"
+               Width="92"
+               Height="66"
+               Margin="195,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -384,21 +398,21 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy1_classe_Emilien"
-               Width="80"
-               Height="55"
-               Margin="261,451,0,0"
+               Width="93"
+               Height="66"
+               Margin="287,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Emilien"
-               Width="80"
-               Height="55"
-               Margin="341,451,0,0"
+               Width="92"
+               Height="66"
+               Margin="380,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -407,34 +421,40 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy2_classe_Emilien"
                Grid.ColumnSpan="2"
-               Width="80"
-               Height="55"
-               Margin="421,451,0,0"
+               Width="92"
+               Height="66"
+               Margin="472,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="prénom_élève_Copy1"
-               Width="92"
-               Height="31"
-               Margin="89,393,0,0"
+               Width="106"
+               Height="37"
+               Margin="89,450,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFF3F1F1"
                Content="Emilien"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" />
-        <Label Width="92"
-               Height="82"
-               Margin="89,424,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFCFF7C3" />
+                    <GradientStop Offset="1" Color="White" />
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Width="106"
+               Height="99"
+               Margin="89,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Content="">
@@ -446,16 +466,16 @@
             </Label.Background>
         </Label>
         <Image x:Name="photo_élève_Copy1"
-               Width="76"
-               Height="81"
-               Margin="105,425,0,0"
+               Width="88"
+               Height="98"
+               Margin="107,488,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Source="Ressources/Emilien.jpg" />
-        <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="13,115,0,0"
+        <Label
+               Width="185"
+               Height="37"
+               Margin="16,115,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -463,35 +483,42 @@
                Background="#FFDAD6D6"
                Content="3ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="173,115,0,0"
+               Width="185"
+               Height="37"
+               Margin="201,115,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFEAA2A2"
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="13,146,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.003"/>
+                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
+                    <GradientStop Color="#FFB8EBF4"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label
+               Width="93"
+               Height="33"
+               Margin="16,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFFDF9A3"
                Content="Elève"
-               FontWeight="Bold" />
+               FontWeight="Bold" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="93,146,0,0"
+               Width="92"
+               Height="33"
+               Margin="109,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -499,9 +526,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="173,146,0,0"
+               Width="93"
+               Height="33"
+               Margin="201,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -510,9 +537,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="253,146,0,0"
+               Width="92"
+               Height="33"
+               Margin="294,152,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -520,10 +547,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy3_Baptiste"
-               Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="13,173,0,0"
+               Width="93"
+               Height="66"
+               Margin="16,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -532,23 +558,23 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" Grid.Column="1" />
         <Label x:Name="moy3_classe_Baptiste"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="93,173,0,0"
+               Width="92"
+               Height="66"
+               Margin="109,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Baptiste"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="173,173,0,0"
+               Width="93"
+               Height="66"
+               Margin="201,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -557,22 +583,22 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy_annee_classe_Baptiste"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="253,173,0,0"
+               Width="92"
+               Height="66"
+               Margin="294,185,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
-        <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="13,253,0,0"
+               Content="Elève" Foreground="#FFEC9C10" />
+        <Label
+               Width="185"
+               Height="38"
+               Margin="16,281,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -580,35 +606,42 @@
                Background="#FFDAD6D6"
                Content="3ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="173,253,0,0"
+               Width="185"
+               Height="38"
+               Margin="201,281,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFEAA2A2"
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="13,284,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.003"/>
+                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
+                    <GradientStop Color="#FFB8EBF4"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label
+               Width="93"
+               Height="32"
+               Margin="16,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFFDF9A3"
                Content="Elève"
-               FontWeight="Bold" />
+               FontWeight="Bold" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="93,284,0,0"
+               Width="92"
+               Height="32"
+               Margin="109,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -616,9 +649,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="173,284,0,0"
+               Width="93"
+               Height="32"
+               Margin="201,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -627,9 +660,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="253,284,0,0"
+               Width="92"
+               Height="32"
+               Margin="294,319,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -637,10 +670,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy3_Justine"
-               Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="13,311,0,0"
+               Width="93"
+               Height="66"
+               Margin="16,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -649,23 +681,23 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" Grid.Column="1" />
         <Label x:Name="moy3_classe_Justine"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="93,311,0,0"
+               Width="92"
+               Height="66"
+               Margin="109,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Justine"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="173,311,0,0"
+               Width="93"
+               Height="66"
+               Margin="201,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -674,22 +706,22 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy_annee_classe_Justine"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="253,311,0,0"
+               Width="92"
+               Height="66"
+               Margin="294,351,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
-        <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="13,393,0,0"
+               Content="Elève" Foreground="#FFEC9C10" />
+        <Label
+               Width="185"
+               Height="37"
+               Margin="16,450,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -697,35 +729,42 @@
                Background="#FFDAD6D6"
                Content="3ème trimestre"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
+               Foreground="#FF54C954" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="160"
-               Height="31"
-               Margin="173,393,0,0"
+               Width="185"
+               Height="37"
+               Margin="201,450,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               Background="#FFEAA2A2"
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF5585EC" />
-        <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="13,424,0,0"
+               Foreground="#FF54C954" >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.003"/>
+                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
+                    <GradientStop Color="#FFB8EBF4"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label
+               Width="93"
+               Height="33"
+               Margin="16,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFFDF9A3"
                Content="Elève"
-               FontWeight="Bold" />
+               FontWeight="Bold" Grid.Column="1" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="93,424,0,0"
+               Width="92"
+               Height="33"
+               Margin="109,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -733,9 +772,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="173,424,0,0"
+               Width="93"
+               Height="33"
+               Margin="201,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -744,9 +783,9 @@
                Content="Elève"
                FontWeight="Bold" />
         <Label Grid.Column="1"
-               Width="80"
-               Height="27"
-               Margin="253,424,0,0"
+               Width="92"
+               Height="33"
+               Margin="294,487,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -754,10 +793,9 @@
                Background="#FFF9FBD4"
                Content="Classe" />
         <Label x:Name="moy3_Emilien"
-               Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="13,451,0,0"
+               Width="93"
+               Height="66"
+               Margin="16,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -766,23 +804,23 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" Grid.Column="1" />
         <Label x:Name="moy3_classe_Emilien"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="93,451,0,0"
+               Width="92"
+               Height="66"
+               Margin="109,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Emilien"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="173,451,0,0"
+               Width="93"
+               Height="66"
+               Margin="201,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
@@ -791,17 +829,17 @@
                Content="Elève"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="Red" />
+               Foreground="#FF007DF9" />
         <Label x:Name="moy_annee_classe_Emilien"
                Grid.Column="1"
-               Width="80"
-               Height="55"
-               Margin="253,451,0,0"
+               Width="92"
+               Height="66"
+               Margin="294,520,0,0"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Elève" />
+               Content="Elève" Foreground="#FFEC9C10" />
     </Grid>
 </Window>

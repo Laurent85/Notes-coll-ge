@@ -170,6 +170,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Bon.png" />
+    <Resource Include="Ressources\Mauvais.png" />
+    <Resource Include="Ressources\Mauvais1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Mauvais2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Mauvais3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Mauvais4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

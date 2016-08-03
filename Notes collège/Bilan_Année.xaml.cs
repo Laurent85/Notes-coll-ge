@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Notes_collège
 {
@@ -61,9 +60,7 @@ namespace Notes_collège
             lire_moyennes.tri3.Content = "";
             lire_moyennes.tri1_classe.Content = "";
             lire_moyennes.tri2_classe.Content = "";
-            lire_moyennes.tri3_classe.Content = "";           
-
-            
+            lire_moyennes.tri3_classe.Content = "";
         }
     }
 }

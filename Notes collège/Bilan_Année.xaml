@@ -98,8 +98,7 @@
                Padding="0"
                FontSize="16"
                FontWeight="Bold"
-               Foreground="#FF007DF9" Content="test" >
-
+               Foreground="#FF007DF9" Content="test">
         </Label>
         <Label x:Name="moy1_classe_Baptiste"
                Width="93"
@@ -146,7 +145,7 @@
                Content="Baptiste"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#FFCFF7C3" />
@@ -295,7 +294,7 @@
                Content="Justine"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#FFCFF7C3" />
@@ -444,7 +443,7 @@
                Content="Emilien"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#FFCFF7C3" />
@@ -495,12 +494,12 @@
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="0.003"/>
-                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
-                    <GradientStop Color="#FFB8EBF4"/>
+                    <GradientStop Color="White" Offset="0.003" />
+                    <GradientStop Color="#FF9FE8F3" Offset="1" />
+                    <GradientStop Color="#FFB8EBF4" />
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
@@ -618,12 +617,12 @@
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="0.003"/>
-                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
-                    <GradientStop Color="#FFB8EBF4"/>
+                    <GradientStop Color="White" Offset="0.003" />
+                    <GradientStop Color="#FF9FE8F3" Offset="1" />
+                    <GradientStop Color="#FFB8EBF4" />
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
@@ -741,12 +740,12 @@
                Content="Année"
                FontSize="14"
                FontWeight="Bold"
-               Foreground="#FF54C954" >
+               Foreground="#FF54C954">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="0.003"/>
-                    <GradientStop Color="#FF9FE8F3" Offset="1"/>
-                    <GradientStop Color="#FFB8EBF4"/>
+                    <GradientStop Color="White" Offset="0.003" />
+                    <GradientStop Color="#FF9FE8F3" Offset="1" />
+                    <GradientStop Color="#FFB8EBF4" />
                 </LinearGradientBrush>
             </Label.Background>
         </Label>

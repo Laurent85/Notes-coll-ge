@@ -63,7 +63,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FF007DF9"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne1_TextChanged" />
         <TextBox x:Name="Moyenne2"
                  Width="120"
                  Height="23"
@@ -74,7 +74,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FF007DF9"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne2_TextChanged" />
         <TextBox x:Name="Moyenne3"
                  Width="120"
                  Height="23"
@@ -85,7 +85,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FF007DF9"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne3_TextChanged" />
         <TextBox x:Name="Moyenne1_classe"
                  Width="120"
                  Height="23"
@@ -96,7 +96,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FFEC9C10"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne1_classe_TextChanged" />
         <TextBox x:Name="Moyenne2_classe"
                  Width="120"
                  Height="23"
@@ -107,7 +107,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FFEC9C10"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne2_classe_TextChanged" />
         <TextBox x:Name="Moyenne3_classe"
                  Width="120"
                  Height="23"
@@ -118,7 +118,7 @@
                  Background="#FFEBF9AA"
                  FontFamily="Comic Sans MS"
                  Foreground="#FFEC9C10"
-                 TextWrapping="Wrap" />
+                 TextWrapping="Wrap" TextChanged="Moyenne3_classe_TextChanged" />
         <Button x:Name="Btn_Valider1"
                 Width="75"
                 Margin="109,182,0,0"

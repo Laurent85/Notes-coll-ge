@@ -1,5 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+
 
 namespace Notes_collège
 {
@@ -14,21 +20,23 @@ namespace Notes_collège
         }
 
         private void Bilan_Loaded(object sender, RoutedEventArgs e)
-        {
+        {        
             Titre.Content = "Bilan - " + Principal.classe;
-            Lire_Moyennes_eleves lire_moyennes = new Lire_Moyennes_eleves();
-
+            Lire_Moyennes_eleves lire_moyennes = new Lire_Moyennes_eleves();        
+            
             lire_moyennes.Lecture_moyennes("Baptiste", Principal.classe);
             lire_moyennes.Calcul_moyenne_générale("Baptiste", Principal.classe);
             Lecture_Moyenne("Baptiste");
-
+            
             lire_moyennes.Lecture_moyennes("Justine", Principal.classe);
             lire_moyennes.Calcul_moyenne_générale("Justine", Principal.classe);
-            Lecture_Moyenne("Justine");
+
+            Lecture_Moyenne("Justine");           
 
             lire_moyennes.Lecture_moyennes("Emilien", Principal.classe);
             lire_moyennes.Calcul_moyenne_générale("Emilien", Principal.classe);
             Lecture_Moyenne("Emilien");
+            
         }
 
         private void Lecture_Moyenne(string prenom)
@@ -55,6 +63,27 @@ namespace Notes_collège
             lire_moyennes.Calcul_moyenne_générale(prenom, Principal.classe);
             moyenne_annee.Content = lire_moyennes.annee.Content;
             moyenne_annee_classe.Content = lire_moyennes.annee_classe.Content;
+
+            if ((Convert.ToDouble(lire_moyennes.tri1.Content)) > (Convert.ToDouble(lire_moyennes.tri2.Content)))
+                {
+                Afficher_fleche("Régression", prenom, "1");
+                }
+            else if ((Convert.ToDouble(lire_moyennes.tri1.Content)) < (Convert.ToDouble(lire_moyennes.tri2.Content)))
+                {
+                Afficher_fleche("Progression", prenom, "1");
+                }
+            else Supprimer_fleche(prenom, "1");
+
+            if ((Convert.ToDouble(lire_moyennes.tri2.Content)) > (Convert.ToDouble(lire_moyennes.tri3.Content)))
+                {
+                Afficher_fleche("Régression", prenom, "2");
+                }
+            else if ((Convert.ToDouble(lire_moyennes.tri2.Content)) < (Convert.ToDouble(lire_moyennes.tri3.Content)))
+                {
+                Afficher_fleche("Progression", prenom, "2");
+                }
+            else Supprimer_fleche(prenom, "2");
+
             lire_moyennes.tri1.Content = "";
             lire_moyennes.tri2.Content = "";
             lire_moyennes.tri3.Content = "";
@@ -62,5 +91,43 @@ namespace Notes_collège
             lire_moyennes.tri2_classe.Content = "";
             lire_moyennes.tri3_classe.Content = "";
         }
+
+        private void Afficher_fleche(string progression, string prenom, string trimestre)
+            {
+            Image Fleche = (Image)this.FindName("Fleche" + trimestre + "_" + prenom);
+            string chemin = "Ressources\\" + progression.ToString() + ".png";
+            Fleche.Source = new BitmapImage(new Uri(@chemin, UriKind.Relative));            
+            }
+
+        private void Supprimer_fleche(string prenom, string trimestre)
+            {
+            Image Fleche = (Image)this.FindName("Fleche" + trimestre + "_" + prenom);
+            Fleche.Source = null;
+            }
+
+        private void effacer()
+            {
+            moy1_Baptiste.Content = "";
+            moy1_Justine.Content = "";
+            moy1_Emilien.Content = "";
+            moy2_Baptiste.Content = "";
+            moy2_Justine.Content = "";
+            moy2_Emilien.Content = "";
+            moy3_Baptiste.Content = "";
+            moy3_Justine.Content = "";
+            moy3_Emilien.Content = "";
+            moy_annee_Baptiste.Content = "";
+            moy_annee_classe_Baptiste.Content = "";
+            moy_annee_Justine.Content = "";
+            moy_annee_classe_Justine.Content = "";
+            moy_annee_Emilien.Content = "";
+            moy_annee_classe_Emilien.Content = "";
+            Fleche1_Baptiste.Source = null;
+            Fleche2_Baptiste.Source = null;
+            Fleche1_Justine.Source = null;
+            Fleche2_Justine.Source = null;
+            Fleche1_Emilien.Source = null;
+            Fleche2_Emilien.Source = null;
+            }
     }
 }

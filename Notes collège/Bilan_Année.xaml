@@ -840,5 +840,11 @@
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
                Content="Elève" Foreground="#FFEC9C10" />
+        <Image x:Name="Fleche1_Baptiste" HorizontalAlignment="Left" Height="37" Margin="357,115,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png"/>
+        <Image x:Name="Fleche2_Baptiste" HorizontalAlignment="Left" Height="37" Margin="541,115,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png" Grid.ColumnSpan="2"/>
+        <Image x:Name="Fleche1_Justine" HorizontalAlignment="Left" Height="37" Margin="357,281,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png"/>
+        <Image x:Name="Fleche1_Emilien" HorizontalAlignment="Left" Height="37" Margin="357,450,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png"/>
+        <Image x:Name="Fleche2_Justine" HorizontalAlignment="Left" Height="37" Margin="541,282,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png" Grid.ColumnSpan="2"/>
+        <Image x:Name="Fleche2_Emilien" HorizontalAlignment="Left" Height="37" Margin="541,450,0,0" VerticalAlignment="Top" Width="46" Source="Ressources/Régression.png" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

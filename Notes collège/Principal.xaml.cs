@@ -13,10 +13,10 @@ namespace Notes_collège
     /// </summary>
     public partial class Principal : Window
     {
-        private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        //private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
 
         //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
 
         public static string classe = "";
@@ -71,6 +71,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("1");
+            Activation_bouton_valider("1");
             Moyenne1.Focus();
             Moyenne1.SelectAll();
         }
@@ -82,6 +83,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("2");
+            Activation_bouton_valider("2");
             Moyenne2.Focus();
             Moyenne2.SelectAll();
         }
@@ -93,6 +95,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Visibilité_mode_modification("3");
+            Activation_bouton_valider("3");
             Moyenne3.Focus();
             Moyenne3.SelectAll();
         }
@@ -221,6 +224,8 @@ namespace Notes_collège
             Button valider = (Button)this.FindName("Btn_Valider" + num);
             TextBox moy_élève = (TextBox)this.FindName("Moyenne" + num);
             TextBox moy_classe = (TextBox)this.FindName("Moyenne" + num + "_classe");
+            Label moyenne_élève = (Label)this.FindName("Moy" + num);
+            Label moyenne_classe = (Label)this.FindName("Moy" + num + "_classe");
             double test;
             bool moy_élève_OK = double.TryParse(moy_élève.Text, out test);
             bool moy_classe_OK = double.TryParse(moy_classe.Text, out test);
@@ -229,6 +234,10 @@ namespace Notes_collège
             {
                 valider.IsEnabled = true;
             }
+            else if ((moyenne_élève.Content.ToString() != "") || (moyenne_classe.Content.ToString() != ""))
+                {
+                valider.IsEnabled = true;
+                }
             else
                 valider.IsEnabled = false;
         }

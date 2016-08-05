@@ -13,10 +13,10 @@ namespace Notes_collège
     /// </summary>
     public partial class Principal : Window
     {
-        //private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
 
         //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
 
         public static string classe = "";
@@ -153,6 +153,13 @@ namespace Notes_collège
             Graphique_classe();
         }
 
+        private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
+        {
+            classe = Classe.SelectedValue.ToString();
+            Bilan_Année bilan = new Bilan_Année();
+            bilan.Show();
+        }
+
         private void Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             effacer();
@@ -160,6 +167,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Afficher_Sous_titre();
+            Btn_Bilan.Content = "Bilan - " + Classe.SelectedValue.ToString();            
         }
 
         private void Eleve_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -240,6 +248,14 @@ namespace Notes_collège
                 }
             else
                 valider.IsEnabled = false;
+            if ((moy_élève_OK == false) && (moy_élève.Text != ""))
+            {
+                valider.IsEnabled = false;
+            }
+            if ((moy_classe_OK == false) && (moy_classe.Text != ""))
+            {
+                valider.IsEnabled = false;
+            }
         }
 
         private void Lire_moyennes()
@@ -495,13 +511,6 @@ namespace Notes_collège
             }
         }
 
-        private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
-        {
-            classe = Classe.SelectedValue.ToString();
-            Bilan_Année bilan = new Bilan_Année();
-            bilan.Show();
-        }
-
         private void Moyenne1_TextChanged(object sender, TextChangedEventArgs e)
         {
             Activation_bouton_valider("1");
@@ -530,6 +539,6 @@ namespace Notes_collège
         private void Moyenne3_classe_TextChanged(object sender, TextChangedEventArgs e)
         {
             Activation_bouton_valider("3");
-        }
+        }        
     }
 }

@@ -22,21 +22,23 @@ namespace Notes_collège
         private void Bilan_Loaded(object sender, RoutedEventArgs e)
         {        
             Titre.Content = "Bilan - " + Principal.classe;
-            Lire_Moyennes_eleves lire_moyennes = new Lire_Moyennes_eleves();        
-            
-            lire_moyennes.Lecture_moyennes("Baptiste", Principal.classe);
-            lire_moyennes.Calcul_moyenne_générale("Baptiste", Principal.classe);
-            Lecture_Moyenne("Baptiste");
-            
-            lire_moyennes.Lecture_moyennes("Justine", Principal.classe);
-            lire_moyennes.Calcul_moyenne_générale("Justine", Principal.classe);
 
-            Lecture_Moyenne("Justine");           
+            try
+            {
+                Lecture_Moyenne("Baptiste");
+            }
+            catch { }
+            try
+            {
+                Lecture_Moyenne("Justine");
+            }
+            catch { }
+            try
+            {
+                Lecture_Moyenne("Emilien");
+            }
+            catch { }
 
-            lire_moyennes.Lecture_moyennes("Emilien", Principal.classe);
-            lire_moyennes.Calcul_moyenne_générale("Emilien", Principal.classe);
-            Lecture_Moyenne("Emilien");
-            
         }
 
         private void Lecture_Moyenne(string prenom)
@@ -64,25 +66,31 @@ namespace Notes_collège
             moyenne_annee.Content = lire_moyennes.annee.Content;
             moyenne_annee_classe.Content = lire_moyennes.annee_classe.Content;
 
-            if ((Convert.ToDouble(lire_moyennes.tri1.Content)) > (Convert.ToDouble(lire_moyennes.tri2.Content)))
-                {
+            if (((Convert.ToDouble(moyenne1.Content)) > (Convert.ToDouble(moyenne2.Content))) &&
+                     (moyenne1.Content.ToString() != "") && (moyenne2.Content.ToString() != ""))
+            {
                 Afficher_fleche("Régression", prenom, "1");
-                }
-            else if ((Convert.ToDouble(lire_moyennes.tri1.Content)) < (Convert.ToDouble(lire_moyennes.tri2.Content)))
-                {
+            }
+            if (((Convert.ToDouble(moyenne1.Content)) < (Convert.ToDouble(moyenne2.Content))) &&
+                    (moyenne1.Content.ToString() != "") && (moyenne2.Content.ToString() != ""))
+            {
                 Afficher_fleche("Progression", prenom, "1");
-                }
-            else Supprimer_fleche(prenom, "1");
+            }
+            if (moyenne2.Content.ToString() == "")
+            { Supprimer_fleche(prenom, "1"); }
 
-            if ((Convert.ToDouble(lire_moyennes.tri2.Content)) > (Convert.ToDouble(lire_moyennes.tri3.Content)))
-                {
+            if (((Convert.ToDouble(moyenne2.Content)) > (Convert.ToDouble(moyenne3.Content))) &&
+                    (moyenne2.Content.ToString() != "") && (moyenne3.Content.ToString() != ""))
+            {
                 Afficher_fleche("Régression", prenom, "2");
-                }
-            else if ((Convert.ToDouble(lire_moyennes.tri2.Content)) < (Convert.ToDouble(lire_moyennes.tri3.Content)))
-                {
+            }
+            if (((Convert.ToDouble(moyenne2.Content)) < (Convert.ToDouble(moyenne3.Content))) &&
+                    (moyenne2.Content.ToString() != "") && (moyenne3.Content.ToString() != ""))
+            {
                 Afficher_fleche("Progression", prenom, "2");
-                }
-            else Supprimer_fleche(prenom, "2");
+            }
+            if (moyenne3.Content.ToString() == "")
+            { Supprimer_fleche(prenom, "2"); }
 
             lire_moyennes.tri1.Content = "";
             lire_moyennes.tri2.Content = "";

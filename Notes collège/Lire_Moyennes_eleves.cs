@@ -6,7 +6,7 @@ namespace Notes_collège
     internal class Lire_Moyennes_eleves
     {
         private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        //x private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
 
         public Label tri1 = new Label();
         public Label tri2 = new Label();

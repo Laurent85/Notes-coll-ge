@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.ServiceProcess;
 
 namespace Notes_collège
 {
@@ -15,10 +16,11 @@ namespace Notes_collège
     {
         private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
 
-        //private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
-        //private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
+        //x private string connectionString = "Data Source=manceau.dtdns.net\\sqlexpress,1433;Network Library=DBMSSOCN;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
+        //x private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
         public static string elève = "";
 
+        public static int index_classe = 0;
         public static string classe = "";
         public static double moy1 = 0;
         public static double moy2 = 0;
@@ -26,6 +28,21 @@ namespace Notes_collège
         public static double moy1_classe = 0;
         public static double moy2_classe = 0;
         public static double moy3_classe = 0;
+        public static void StartService(string serviceName, int timeoutMilliseconds)
+        {
+            ServiceController service = new ServiceController(serviceName);
+            try
+            {
+                TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
+
+                service.Start();
+                service.WaitForStatus(ServiceControllerStatus.Running, timeout);
+            }
+            catch
+            {
+                // ...
+            }
+        }
 
         public Principal()
         {
@@ -35,6 +52,7 @@ namespace Notes_collège
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            StartService("SQL SERVER (SQLEXPRESS)", 10000);
             effacer();
             Visibilité_mode_consultation("1");
             Visibilité_mode_consultation("2");
@@ -131,7 +149,6 @@ namespace Notes_collège
         {
             Saisie_moyenne("2ème trimestre", Moyenne2, Moyenne2_classe, Moy2, Moy2_classe, "2");
             Saisie_moyenne_classe("2ème trimestre", Moyenne2_classe, Moyenne2, Moy2, Moy2_classe, "2");
-            //Lire_moyennes();
             effacer();
             Lire_moyennes();
             Moyennes_graphique.Clear();
@@ -144,7 +161,6 @@ namespace Notes_collège
         {
             Saisie_moyenne("3ème trimestre", Moyenne3, Moyenne3_classe, Moy3, Moy3_classe, "3");
             Saisie_moyenne_classe("3ème trimestre", Moyenne3_classe, Moyenne3, Moy3, Moy3_classe, "3");
-            //Lire_moyennes();
             effacer();
             Lire_moyennes();
             Moyennes_graphique.Clear();
@@ -156,6 +172,7 @@ namespace Notes_collège
         private void Btn_Bilan_Click(object sender, RoutedEventArgs e)
         {
             classe = Classe.SelectedValue.ToString();
+            index_classe = Classe.SelectedIndex;
             Bilan_Année bilan = new Bilan_Année();
             bilan.Show();
         }
@@ -167,7 +184,7 @@ namespace Notes_collège
             Graphique();
             Graphique_classe();
             Afficher_Sous_titre();
-            Btn_Bilan.Content = "Bilan - " + Classe.SelectedValue.ToString();            
+            Btn_Bilan.Content = "Bilan - " + Classe.SelectedValue.ToString();
         }
 
         private void Eleve_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -178,6 +195,36 @@ namespace Notes_collège
             Graphique_classe();
             Afficher_photo();
             Afficher_Sous_titre();
+        }
+
+        private void Moyenne1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("1");
+        }
+
+        private void Moyenne2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("2");
+        }
+
+        private void Moyenne3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("3");
+        }
+
+        private void Moyenne1_classe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("1");
+        }
+
+        private void Moyenne2_classe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("2");
+        }
+
+        private void Moyenne3_classe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Activation_bouton_valider("3");
         }
 
         private void Afficher_photo()
@@ -194,7 +241,7 @@ namespace Notes_collège
         private void Visibilité_mode_modification(string num)
         {
             Button valider = (Button)this.FindName("Btn_Valider" + num);
-            valider.Visibility = Visibility.Visible;            
+            valider.Visibility = Visibility.Visible;
             Button annuler = (Button)this.FindName("Btn_Annuler" + num);
             annuler.Visibility = Visibility.Visible;
             Button modifier = (Button)this.FindName("Btn_Modifier" + num);
@@ -243,9 +290,9 @@ namespace Notes_collège
                 valider.IsEnabled = true;
             }
             else if ((moyenne_élève.Content.ToString() != "") || (moyenne_classe.Content.ToString() != ""))
-                {
+            {
                 valider.IsEnabled = true;
-                }
+            }
             else
                 valider.IsEnabled = false;
             if ((moy_élève_OK == false) && (moy_élève.Text != ""))
@@ -298,13 +345,14 @@ namespace Notes_collège
 
             string st1 = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne)";
             string st2 = "Update Notes Set Moyenne = @Moyenne WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
-            string st3 = "Delete from Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
+            string st3 = "Delete from Notes WHERE Eleve=@Eleve AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st4 = "Update Notes Set Moyenne = NULL WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             SqlCommand cmd1 = new SqlCommand(st1, con);
             SqlCommand cmd2 = new SqlCommand(st2, con);
             SqlCommand cmd3 = new SqlCommand(st3, con);
             SqlCommand cmd4 = new SqlCommand(st4, con);
             cmd1.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
+            cmd3.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
             cmd1.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
             cmd1.Parameters.AddWithValue("@Trimestre", trimestre);
 
@@ -508,37 +556,7 @@ namespace Notes_collège
             {
                 get { return (double)GetValue(valeur1); }
                 set { SetValue(valeur1, value); }
-            }
+            }            
         }
-
-        private void Moyenne1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("1");
-        }
-
-        private void Moyenne2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("2");
-        }
-
-        private void Moyenne3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("3");
-        }
-
-        private void Moyenne1_classe_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("1");
-        }
-
-        private void Moyenne2_classe_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("2");
-        }
-
-        private void Moyenne3_classe_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Activation_bouton_valider("3");
-        }        
     }
 }

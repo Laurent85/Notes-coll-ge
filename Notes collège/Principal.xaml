@@ -14,7 +14,9 @@
         Background="#FFA9F0BC"
         Icon="Ressources/Notes.ico"
         Loaded="Window_Loaded"
-        mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
 
     <Grid Margin="0,0,0,0" Background="#FFA9F0BC">
         <Grid Margin="0,0,616,0">
@@ -505,13 +507,14 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Click="Btn_Bilan_Click"
-                    Content="Bilan année" FontFamily="Comic Sans MS" >
+                    Content="Bilan année"
+                    FontFamily="Comic Sans MS">
                 <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                        <GradientStop Color="#FF95E699" Offset="1"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="#FFF3F3F3" />
+                        <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                        <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                        <GradientStop Offset="1" Color="#FF95E699" />
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
@@ -588,6 +591,5 @@
                 </charting:Chart>
             </DockPanel>
         </Grid>
-
     </Grid>
 </Window>

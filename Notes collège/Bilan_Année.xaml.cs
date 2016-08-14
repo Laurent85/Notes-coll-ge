@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-
+using System.Windows.Media;
 
 namespace Notes_collège
 {
@@ -20,28 +18,62 @@ namespace Notes_collège
         }
 
         private void Bilan_Loaded(object sender, RoutedEventArgs e)
-        {        
-            Titre.Content = "Bilan - " + Principal.classe;
+        {
+            //Titre.Content = "Bilan - " + Principal.classe;
+            classe.SelectedIndex = Principal.index_classe;
+            classe.BorderBrush = Brushes.Transparent;
 
             try
             {
-                Lecture_Moyenne("Baptiste");
+                Lecture_Moyenne("Baptiste", Principal.classe);
             }
             catch { }
             try
             {
-                Lecture_Moyenne("Justine");
+                Lecture_Moyenne("Justine", Principal.classe);
             }
             catch { }
             try
             {
-                Lecture_Moyenne("Emilien");
+                Lecture_Moyenne("Emilien", Principal.classe);
             }
             catch { }
-
         }
 
-        private void Lecture_Moyenne(string prenom)
+        private void classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            effacer();
+            //Titre.Content = "Bilan - " + classe.SelectedValue;
+
+            try
+            {
+                Lecture_Moyenne("Baptiste", classe.SelectedValue.ToString());
+            }
+            catch { }
+            try
+            {
+                Lecture_Moyenne("Justine", classe.SelectedValue.ToString());
+            }
+            catch { }
+            try
+            {
+                Lecture_Moyenne("Emilien", classe.SelectedValue.ToString());
+            }
+            catch { }
+        }
+
+        private void classe_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("6ème");
+            data.Add("5ème");
+            data.Add("4ème");
+            data.Add("3ème");
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+        }
+
+        private void Lecture_Moyenne(string prenom, string classe)
         {
             Label moyenne1 = (Label)this.FindName("moy1_" + prenom);
             Label moyenne2 = (Label)this.FindName("moy2_" + prenom);
@@ -54,7 +86,7 @@ namespace Notes_collège
 
             Lire_Moyennes_eleves lire_moyennes = new Lire_Moyennes_eleves();
 
-            lire_moyennes.Lecture_moyennes(prenom, Principal.classe);
+            lire_moyennes.Lecture_moyennes(prenom, classe);
             moyenne1.Content = lire_moyennes.tri1.Content;
             moyenne2.Content = lire_moyennes.tri2.Content;
             moyenne3.Content = lire_moyennes.tri3.Content;
@@ -62,7 +94,7 @@ namespace Notes_collège
             moyenne2_classe.Content = lire_moyennes.tri2_classe.Content;
             moyenne3_classe.Content = lire_moyennes.tri3_classe.Content;
 
-            lire_moyennes.Calcul_moyenne_générale(prenom, Principal.classe);
+            lire_moyennes.Calcul_moyenne_générale(prenom, classe);
             moyenne_annee.Content = lire_moyennes.annee.Content;
             moyenne_annee_classe.Content = lire_moyennes.annee_classe.Content;
 
@@ -101,20 +133,20 @@ namespace Notes_collège
         }
 
         private void Afficher_fleche(string progression, string prenom, string trimestre)
-            {
+        {
             Image Fleche = (Image)this.FindName("Fleche" + trimestre + "_" + prenom);
             string chemin = "Ressources\\" + progression.ToString() + ".png";
-            Fleche.Source = new BitmapImage(new Uri(@chemin, UriKind.Relative));            
-            }
+            Fleche.Source = new BitmapImage(new Uri(@chemin, UriKind.Relative));
+        }
 
         private void Supprimer_fleche(string prenom, string trimestre)
-            {
+        {
             Image Fleche = (Image)this.FindName("Fleche" + trimestre + "_" + prenom);
             Fleche.Source = null;
-            }
+        }
 
         private void effacer()
-            {
+        {
             moy1_Baptiste.Content = "";
             moy1_Justine.Content = "";
             moy1_Emilien.Content = "";
@@ -136,6 +168,6 @@ namespace Notes_collège
             Fleche2_Justine.Source = null;
             Fleche1_Emilien.Source = null;
             Fleche2_Emilien.Source = null;
-            }
+        }
     }
 }

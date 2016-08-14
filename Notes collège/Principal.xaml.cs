@@ -92,6 +92,7 @@ namespace Notes_collège
             Activation_bouton_valider("1");
             Moyenne1.Focus();
             Moyenne1.SelectAll();
+            //bb
         }
 
         private void Btn_Modifier2_Click(object sender, RoutedEventArgs e)

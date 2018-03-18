@@ -3,19 +3,19 @@ using System.Windows.Controls;
 
 namespace Notes_collège
 {
-    internal class Lire_Moyennes_eleves
+    internal class LireMoyennesEleves
     {
         private string connectionString = "Data Source=laurent\\sqlexpress;Initial Catalog=Notes;Persist Security Info=True;User ID=sa;Password=sa;Pooling=False";
         //x private string connectionString = "Data Source=PCLAURENT\\SQLEXPRESS;Initial Catalog=Notes;Integrated Security=True";
 
-        public Label tri1 = new Label();
-        public Label tri2 = new Label();
-        public Label tri3 = new Label();
-        public Label tri1_classe = new Label();
-        public Label tri2_classe = new Label();
-        public Label tri3_classe = new Label();
-        public Label annee = new Label();
-        public Label annee_classe = new Label();
+        public Label Tri1 = new Label();
+        public Label Tri2 = new Label();
+        public Label Tri3 = new Label();
+        public Label Tri1Classe = new Label();
+        public Label Tri2Classe = new Label();
+        public Label Tri3Classe = new Label();
+        public Label Annee = new Label();
+        public Label AnneeClasse = new Label();
 
         public void Lecture_moyennes(string eleve, string niveau)
         {
@@ -46,54 +46,72 @@ namespace Notes_collège
             reader.Read();
             try
             {
-                tri1.Content = reader["Moyenne"].ToString();
+                Tri1.Content = reader["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader.Close(); }
 
             reader1 = cmd1.ExecuteReader();
             reader1.Read();
             try
             {
-                tri2.Content = reader1["Moyenne"].ToString();
+                Tri2.Content = reader1["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader1.Close(); }
 
             reader2 = cmd2.ExecuteReader();
             reader2.Read();
             try
             {
-                tri3.Content = reader2["Moyenne"].ToString();
+                Tri3.Content = reader2["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader2.Close(); }
 
             reader3 = cmd3.ExecuteReader();
             reader3.Read();
             try
             {
-                tri1_classe.Content = reader3["Moyenne_classe"].ToString();
+                Tri1Classe.Content = reader3["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader3.Close(); }
 
             reader4 = cmd4.ExecuteReader();
             reader4.Read();
             try
             {
-                tri2_classe.Content = reader4["Moyenne_classe"].ToString();
+                Tri2Classe.Content = reader4["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader4.Close(); }
 
             reader5 = cmd5.ExecuteReader();
             reader5.Read();
             try
             {
-                tri3_classe.Content = reader5["Moyenne_classe"].ToString();
+                Tri3Classe.Content = reader5["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader5.Close(); }
             con.Close();
         }
@@ -127,54 +145,72 @@ namespace Notes_collège
             reader.Read();
             try
             {
-                tri1.Content = reader["Moyenne"].ToString();
+                Tri1.Content = reader["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader.Close(); }
 
             reader1 = cmd1.ExecuteReader();
             reader1.Read();
             try
             {
-                tri2.Content = reader1["Moyenne"].ToString();
+                Tri2.Content = reader1["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader1.Close(); }
 
             reader2 = cmd2.ExecuteReader();
             reader2.Read();
             try
             {
-                tri3.Content = reader2["Moyenne"].ToString();
+                Tri3.Content = reader2["Moyenne"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader2.Close(); }
 
             reader3 = cmd3.ExecuteReader();
             reader3.Read();
             try
             {
-                tri1_classe.Content = reader3["Moyenne_classe"].ToString();
+                Tri1Classe.Content = reader3["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader3.Close(); }
 
             reader4 = cmd4.ExecuteReader();
             reader4.Read();
             try
             {
-                tri2_classe.Content = reader4["Moyenne_classe"].ToString();
+                Tri2Classe.Content = reader4["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader4.Close(); }
 
             reader5 = cmd5.ExecuteReader();
             reader5.Read();
             try
             {
-                tri3_classe.Content = reader5["Moyenne_classe"].ToString();
+                Tri3Classe.Content = reader5["Moyenne_classe"].ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             finally { reader5.Close(); }
             con.Close();
         }
@@ -191,15 +227,21 @@ namespace Notes_collège
 
             try
             {
-                annee.Content = cmd.ExecuteScalar().ToString();
+                Annee.Content = cmd.ExecuteScalar().ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             try
             {
-                annee_classe.Content = cmd1.ExecuteScalar().ToString();
+                AnneeClasse.Content = cmd1.ExecuteScalar().ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             con.Close();
         }
 
@@ -215,15 +257,21 @@ namespace Notes_collège
 
             try
             {
-                annee.Content = cmd.ExecuteScalar().ToString();
+                Annee.Content = cmd.ExecuteScalar().ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             try
             {
-                annee_classe.Content = cmd1.ExecuteScalar().ToString();
+                AnneeClasse.Content = cmd1.ExecuteScalar().ToString();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
             con.Close();
         }
     }

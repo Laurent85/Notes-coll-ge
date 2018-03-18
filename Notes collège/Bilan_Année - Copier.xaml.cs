@@ -10,7 +10,7 @@ namespace Notes_collège
     /// <summary>
     /// Logique d'interaction pour Bilan_Année.xaml
     /// </summary>
-    public partial class Bilan_Année
+    public partial class Bilan_Année : Window
     {
         public Bilan_Année()
         {
@@ -27,26 +27,17 @@ namespace Notes_collège
             {
                 Lecture_Moyenne("Baptiste", Principal.classe);
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
             try
             {
                 Lecture_Moyenne("Justine", Principal.classe);
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
             try
             {
                 Lecture_Moyenne("Emilien", Principal.classe);
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
         }
 
         private void classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,26 +49,17 @@ namespace Notes_collège
             {
                 Lecture_Moyenne("Baptiste", classe.SelectedValue.ToString());
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
             try
             {
                 Lecture_Moyenne("Justine", classe.SelectedValue.ToString());
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
             try
             {
                 Lecture_Moyenne("Emilien", classe.SelectedValue.ToString());
             }
-            catch
-            {
-                // ignored
-            }
+            catch { }
         }
 
         private void classe_Loaded(object sender, RoutedEventArgs e)
@@ -88,7 +70,7 @@ namespace Notes_collège
             data.Add("4ème");
             data.Add("3ème");
             var comboBox = sender as ComboBox;
-            if (comboBox != null) comboBox.ItemsSource = data;
+            comboBox.ItemsSource = data;
         }
 
         private void Lecture_Moyenne(string prenom, string classe)
@@ -96,25 +78,25 @@ namespace Notes_collège
             Label moyenne1 = (Label)this.FindName("moy1_" + prenom);
             Label moyenne2 = (Label)this.FindName("moy2_" + prenom);
             Label moyenne3 = (Label)this.FindName("moy3_" + prenom);
-            Label moyenne1Classe = (Label)this.FindName("moy1_classe_" + prenom);
-            Label moyenne2Classe = (Label)this.FindName("moy2_classe_" + prenom);
-            Label moyenne3Classe = (Label)this.FindName("moy3_classe_" + prenom);
-            Label moyenneAnnee = (Label)this.FindName("moy_annee_" + prenom);
-            Label moyenneAnneeClasse = (Label)this.FindName("moy_annee_classe_" + prenom);
+            Label moyenne1_classe = (Label)this.FindName("moy1_classe_" + prenom);
+            Label moyenne2_classe = (Label)this.FindName("moy2_classe_" + prenom);
+            Label moyenne3_classe = (Label)this.FindName("moy3_classe_" + prenom);
+            Label moyenne_annee = (Label)this.FindName("moy_annee_" + prenom);
+            Label moyenne_annee_classe = (Label)this.FindName("moy_annee_classe_" + prenom);
 
-            LireMoyennesEleves lireMoyennes = new LireMoyennesEleves();
+            Lire_Moyennes_eleves lire_moyennes = new Lire_Moyennes_eleves();
 
-            lireMoyennes.Lecture_moyennes(prenom, classe);
-            moyenne1.Content = lireMoyennes.Tri1.Content;
-            moyenne2.Content = lireMoyennes.Tri2.Content;
-            moyenne3.Content = lireMoyennes.Tri3.Content;
-            moyenne1Classe.Content = lireMoyennes.Tri1Classe.Content;
-            moyenne2Classe.Content = lireMoyennes.Tri2Classe.Content;
-            moyenne3Classe.Content = lireMoyennes.Tri3Classe.Content;
+            lire_moyennes.Lecture_moyennes(prenom, classe);
+            moyenne1.Content = lire_moyennes.tri1.Content;
+            moyenne2.Content = lire_moyennes.tri2.Content;
+            moyenne3.Content = lire_moyennes.tri3.Content;
+            moyenne1_classe.Content = lire_moyennes.tri1_classe.Content;
+            moyenne2_classe.Content = lire_moyennes.tri2_classe.Content;
+            moyenne3_classe.Content = lire_moyennes.tri3_classe.Content;
 
-            lireMoyennes.Calcul_moyenne_générale(prenom, classe);
-            moyenneAnnee.Content = lireMoyennes.Annee.Content;
-            moyenneAnneeClasse.Content = lireMoyennes.AnneeClasse.Content;
+            lire_moyennes.Calcul_moyenne_générale(prenom, classe);
+            moyenne_annee.Content = lire_moyennes.annee.Content;
+            moyenne_annee_classe.Content = lire_moyennes.annee_classe.Content;
 
             if (((Convert.ToDouble(moyenne1.Content)) > (Convert.ToDouble(moyenne2.Content))) &&
                      (moyenne1.Content.ToString() != "") && (moyenne2.Content.ToString() != ""))
@@ -142,12 +124,12 @@ namespace Notes_collège
             if (moyenne3.Content.ToString() == "")
             { Supprimer_fleche(prenom, "2"); }
 
-            lireMoyennes.Tri1.Content = "";
-            lireMoyennes.Tri2.Content = "";
-            lireMoyennes.Tri3.Content = "";
-            lireMoyennes.Tri1Classe.Content = "";
-            lireMoyennes.Tri2Classe.Content = "";
-            lireMoyennes.Tri3Classe.Content = "";
+            lire_moyennes.tri1.Content = "";
+            lire_moyennes.tri2.Content = "";
+            lire_moyennes.tri3.Content = "";
+            lire_moyennes.tri1_classe.Content = "";
+            lire_moyennes.tri2_classe.Content = "";
+            lire_moyennes.tri3_classe.Content = "";
         }
 
         private void Afficher_fleche(string progression, string prenom, string trimestre)

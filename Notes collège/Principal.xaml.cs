@@ -91,8 +91,7 @@ namespace Notes_collège
             Visibilité_mode_modification("1");
             Activation_bouton_valider("1");
             Moyenne1.Focus();
-            Moyenne1.SelectAll();
-            //bb
+            Moyenne1.SelectAll();            
         }
 
         private void Btn_Modifier2_Click(object sender, RoutedEventArgs e)
@@ -178,16 +177,6 @@ namespace Notes_collège
             bilan.Show();
         }
 
-        private void Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            effacer();
-            Lire_moyennes();
-            Graphique();
-            Graphique_classe();
-            Afficher_Sous_titre();
-            Btn_Bilan.Content = "Bilan - " + Classe.SelectedValue.ToString();
-        }
-
         private void Eleve_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             effacer();
@@ -198,33 +187,49 @@ namespace Notes_collège
             Afficher_Sous_titre();
         }
 
+        private void Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            effacer();
+            Lire_moyennes();
+            Graphique();
+            Graphique_classe();
+            Afficher_Sous_titre();
+            Btn_Bilan.Content = "Bilan - " + Classe.SelectedValue.ToString();
+        }
+
         private void Moyenne1_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("1");
             Activation_bouton_valider("1");
         }
 
         private void Moyenne2_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("2");
             Activation_bouton_valider("2");
         }
 
         private void Moyenne3_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("3");
             Activation_bouton_valider("3");
         }
 
         private void Moyenne1_classe_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("1");
             Activation_bouton_valider("1");
         }
 
         private void Moyenne2_classe_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("2");
             Activation_bouton_valider("2");
         }
 
         private void Moyenne3_classe_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Changer_Décimale("3");
             Activation_bouton_valider("3");
         }
 
@@ -275,6 +280,28 @@ namespace Notes_collège
             moy_classe.Visibility = Visibility.Visible;
         }
 
+        private void Changer_Décimale(string num)
+        {            
+            TextBox moy_élève = (TextBox)this.FindName("Moyenne" + num);
+            TextBox moy_classe = (TextBox)this.FindName("Moyenne" + num + "_classe");            
+
+            if (moy_élève.Text.Contains("."))
+            {
+                moy_élève.Text = moy_élève.Text.Replace('.', ',');
+                moy_élève.SelectionStart = moy_élève.Text.IndexOf(',') + 1;
+                moy_élève.SelectionLength = 0;
+                moy_élève.Focus();
+            }
+
+            if (moy_classe.Text.Contains("."))
+            {
+                moy_classe.Text = moy_classe.Text.Replace('.', ',');
+                moy_classe.SelectionStart = moy_classe.Text.IndexOf(',') + 1;
+                moy_classe.SelectionLength = 0;
+                moy_classe.Focus();
+            }
+        }
+
         private void Activation_bouton_valider(string num)
         {
             Button valider = (Button)this.FindName("Btn_Valider" + num);
@@ -308,33 +335,41 @@ namespace Notes_collège
 
         private void Lire_moyennes()
         {
-            Lire_Moyennes_eleves lire_moyenne_élève = new Lire_Moyennes_eleves();
+            LireMoyennesEleves lire_moyenne_élève = new LireMoyennesEleves();
             lire_moyenne_élève.Lecture_moyennes(Eleve, Classe);
-            Lire_Moyennes_eleves calcul_moyenne_générale = new Lire_Moyennes_eleves();
+            LireMoyennesEleves calcul_moyenne_générale = new LireMoyennesEleves();
             calcul_moyenne_générale.Calcul_moyenne_générale(Eleve, Classe);
             try
             {
-                Moy1.Content = lire_moyenne_élève.tri1.Content.ToString();
-                Moy1_classe.Content = lire_moyenne_élève.tri1_classe.Content.ToString();
-                Moyenne1.Text = lire_moyenne_élève.tri1.Content.ToString();
-                Moyenne1_classe.Text = lire_moyenne_élève.tri1_classe.Content.ToString();
-
-                Moy2.Content = lire_moyenne_élève.tri2.Content.ToString();
-                Moy2_classe.Content = lire_moyenne_élève.tri2_classe.Content.ToString();
-                Moyenne2.Text = lire_moyenne_élève.tri2.Content.ToString();
-                Moyenne2_classe.Text = lire_moyenne_élève.tri2_classe.Content.ToString();
-
-                Moy3.Content = lire_moyenne_élève.tri3.Content.ToString();
-                Moy3_classe.Content = lire_moyenne_élève.tri3_classe.Content.ToString();
-                Moyenne3.Text = lire_moyenne_élève.tri3.Content.ToString();
-                Moyenne3_classe.Text = lire_moyenne_élève.tri3_classe.Content.ToString();
+                Moy1.Content = lire_moyenne_élève.Tri1.Content.ToString();
+                Moy1_classe.Content = lire_moyenne_élève.Tri1Classe.Content.ToString();
+                Moyenne1.Text = lire_moyenne_élève.Tri1.Content.ToString();
+                Moyenne1_classe.Text = lire_moyenne_élève.Tri1Classe.Content.ToString();
             }
             catch { }
 
             try
             {
-                Moyenne_générale.Text = calcul_moyenne_générale.annee.Content.ToString();
-                Moyenne_générale_classe.Text = calcul_moyenne_générale.annee_classe.Content.ToString();
+                Moy2.Content = lire_moyenne_élève.Tri2.Content.ToString();
+                Moy2_classe.Content = lire_moyenne_élève.Tri2Classe.Content.ToString();
+                Moyenne2.Text = lire_moyenne_élève.Tri2.Content.ToString();
+                Moyenne2_classe.Text = lire_moyenne_élève.Tri2Classe.Content.ToString();
+            }
+            catch { }
+
+            try
+            {
+                Moy3.Content = lire_moyenne_élève.Tri3.Content.ToString();
+                Moy3_classe.Content = lire_moyenne_élève.Tri3Classe.Content.ToString();
+                Moyenne3.Text = lire_moyenne_élève.Tri3.Content.ToString();
+                Moyenne3_classe.Text = lire_moyenne_élève.Tri3Classe.Content.ToString();
+        }
+            catch { }
+
+            try
+            {
+                Moyenne_générale.Text = calcul_moyenne_générale.Annee.Content.ToString();
+                Moyenne_générale_classe.Text = calcul_moyenne_générale.AnneeClasse.Content.ToString();
             }
             catch { }
         }
@@ -342,16 +377,22 @@ namespace Notes_collège
         private void Saisie_moyenne(string trimestre, TextBox moyenne, TextBox moyenne_classe, Label moy, Label moy_classe, string visibilité)
         {
             SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-
+            con.Open();            
+            
             string st1 = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne)";
             string st2 = "Update Notes Set Moyenne = @Moyenne WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st3 = "Delete from Notes WHERE Eleve=@Eleve AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st4 = "Update Notes Set Moyenne = NULL WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
+            string st5 = "SELECT COUNT(Moyenne_classe) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
+            string st6 = "SELECT COUNT(Moyenne) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             SqlCommand cmd1 = new SqlCommand(st1, con);
             SqlCommand cmd2 = new SqlCommand(st2, con);
             SqlCommand cmd3 = new SqlCommand(st3, con);
             SqlCommand cmd4 = new SqlCommand(st4, con);
+            SqlCommand cmd5 = new SqlCommand(st5, con);
+            SqlCommand cmd6 = new SqlCommand(st6, con);
+            int moyenne_présente = (int)cmd6.ExecuteScalar();
+            int moyenne_classe_présente = (int)cmd5.ExecuteScalar();
             cmd1.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
             cmd3.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
             cmd1.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
@@ -365,31 +406,31 @@ namespace Notes_collège
             catch { }
 
             //Insertion ligne
-            if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() == "") && (moyenne.Text != ""))
+            if ((moyenne.Text != "") && (moyenne_présente == 0) && (moyenne_classe_présente == 0))
             {
                 cmd1.ExecuteNonQuery();
             }
 
             //Insertion moyenne
-            if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() != "") && (moyenne.Text != ""))
+            if ((moyenne.Text != "") && ((moyenne_présente != 0) || (moyenne_classe_présente != 0)))
             {
                 cmd2.ExecuteNonQuery();
             }
 
             //Modification
-            if ((moy.Content.ToString() != "") && (moyenne.Text != ""))
+            if ((moyenne.Text != "") && (moyenne_présente != 0))
             {
                 cmd2.ExecuteNonQuery();
             }
 
             //Suppression ligne
-            if ((moy.Content.ToString() != "") && (moyenne.Text == "") && (moy_classe.Content.ToString() == ""))
+            if ((moyenne_présente != 0) && (moyenne.Text == "") && (moyenne_classe_présente == 0))
             {
                 cmd3.ExecuteNonQuery();
             }
 
             //Suppression moyenne
-            if ((moy.Content.ToString() != "") && (moyenne.Text == "") && (moy_classe.Content.ToString() != ""))
+            if ((moyenne_présente != 0) && (moyenne.Text == "") && (moyenne_classe_présente != 0))
             {
                 cmd4.ExecuteNonQuery();
             }
@@ -400,57 +441,61 @@ namespace Notes_collège
 
         private void Saisie_moyenne_classe(string trimestre, TextBox moyenne_classe, TextBox moyenne, Label moy, Label moy_classe, string visibilité)
         {
-            string st1 = "SELECT Moyenne_classe FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
-
             SqlConnection con = new SqlConnection(connectionString);
 
             con.Open();
-            string st = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne_classe) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne_classe)";
+            string st1 = "Insert into Notes (Eleve, Classe, Trimestre, Moyenne_classe) VALUES (@Eleve, @Classe, @Trimestre, @Moyenne_classe)";
             string st2 = "Update Notes Set Moyenne_classe = @Moyenne_classe WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st3 = "Update Notes Set Moyenne_classe = NULL WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
             string st4 = "Delete from Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
-            SqlCommand cmd = new SqlCommand(st, con);
+            string st5 = "SELECT COUNT(Moyenne) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
+            string st6 = "SELECT COUNT(Moyenne_classe) FROM Notes WHERE Eleve='" + Eleve.SelectedValue + "' AND Classe='" + Classe.SelectedValue + "' AND Trimestre='" + trimestre + "'";
+            SqlCommand cmd1 = new SqlCommand(st1, con);            
             SqlCommand cmd2 = new SqlCommand(st2, con);
             SqlCommand cmd3 = new SqlCommand(st3, con);
             SqlCommand cmd4 = new SqlCommand(st4, con);
-            cmd.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
-            cmd.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
-            cmd.Parameters.AddWithValue("@Trimestre", trimestre);
+            SqlCommand cmd5 = new SqlCommand(st5, con);
+            SqlCommand cmd6 = new SqlCommand(st6, con);
+            int moyenne_présente = (int)cmd5.ExecuteScalar();
+            int moyenne_classe_présente = (int)cmd6.ExecuteScalar();
+            cmd1.Parameters.AddWithValue("@Eleve", Eleve.SelectedValue);
+            cmd1.Parameters.AddWithValue("@Classe", Classe.SelectedValue);
+            cmd1.Parameters.AddWithValue("@Trimestre", trimestre);
             try
             {
-                cmd.Parameters.AddWithValue("@Moyenne_classe", Convert.ToDouble(moyenne_classe.Text));
+                cmd1.Parameters.AddWithValue("@Moyenne_classe", Convert.ToDouble(moyenne_classe.Text));
                 cmd2.Parameters.AddWithValue("@Moyenne_classe", Convert.ToDouble(moyenne_classe.Text));
             }
             catch { }
 
             //Insertion ligne
-            if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() == "") && (moyenne_classe.Text != ""))
+            if ((moyenne_classe.Text != "") && (moyenne_présente == 0) && (moyenne_classe_présente == 0))
             {
-                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
             }
 
             //Insertion moyenne
-            if ((moy.Content.ToString() != "") && (moy_classe.Content.ToString() == "") && (moyenne_classe.Text != ""))
+            if ((moyenne_classe.Text != "") && ((moyenne_présente != 0) || (moyenne_classe_présente != 0)))
             {
                 cmd2.ExecuteNonQuery();
             }
 
             //Modification
-            if ((moy_classe.Content.ToString() != "") && (moyenne_classe.Text != ""))
+            if ((moyenne_classe.Text != "") && (moyenne_classe_présente != 0))
             {
                 cmd2.ExecuteNonQuery();
             }
 
-            //Suppression moyenne
-            if ((moy_classe.Content.ToString() != "") && (moyenne_classe.Text == ""))
-            {
-                cmd3.ExecuteNonQuery();
-            }
-
             //Suppression ligne
-            if ((moy.Content.ToString() == "") && (moy_classe.Content.ToString() != "") && (moyenne_classe.Text == ""))
+            if ((moyenne_classe_présente != 0) && (moyenne_classe.Text == "") && (moyenne_présente == 0))
             {
                 cmd4.ExecuteNonQuery();
+            }
+
+            //Suppression moyenne
+            if ((moyenne_classe_présente != 0) && (moyenne_classe.Text == "") && (moyenne_présente != 0))
+            {
+                cmd3.ExecuteNonQuery();
             }
 
             con.Close();

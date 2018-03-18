@@ -225,7 +225,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Baptiste"
                Width="92"
@@ -249,7 +249,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy3_Baptiste"
                Width="93"
@@ -273,7 +273,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Baptiste"
                Width="93"
@@ -297,9 +297,8 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
-               FontSize="16"
-               Foreground="#FFEC9C10" />
+               Content="Elève"
+               Foreground="#FFEC9C10" FontSize="16" />
         <Label x:Name="moy1_Justine"
                Width="92"
                Height="66"
@@ -322,7 +321,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Justine"
                Width="92"
@@ -346,7 +345,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy3_Justine"
                Width="93"
@@ -370,7 +369,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Justine"
                Width="93"
@@ -394,9 +393,8 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
-               FontSize="16"
-               Foreground="#FFEC9C10" />
+               Content="Elève"
+               Foreground="#FFEC9C10" FontSize="16" />
         <Label x:Name="moy1_Emilien"
                Width="92"
                Height="66"
@@ -419,7 +417,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy2_Emilien"
                Width="92"
@@ -443,7 +441,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy3_Emilien"
                Width="93"
@@ -467,7 +465,7 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
+               Content="Elève"
                Foreground="#FFEC9C10" />
         <Label x:Name="moy_annee_Emilien"
                Width="93"
@@ -491,9 +489,8 @@
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
                Background="#FFF1FDE7"
-               Content="Classe"
-               FontSize="16"
-               Foreground="#FFEC9C10" />
+               Content="Elève"
+               Foreground="#FFEC9C10" FontSize="16" />
         <Label Width="106"
                Height="99"
                Margin="89,152,0,0"
